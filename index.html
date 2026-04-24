@@ -486,39 +486,26 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
   </tbody>
 </table></div>
 
-<!-- GRÁFICO WATERFALL MÊS -->
+<!-- CONTROLE ÚNICO PARA OS DOIS GRÁFICOS DO MÊS -->
 <div style="margin-top:16px;">
   <div style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;margin-bottom:6px;">
-    <div class="wf-btn wf-btn-month active" onclick="selectAreaMonth('consolidado')" data-area="consolidado">Consolidado</div>
-    <div class="wf-btn wf-btn-month" onclick="selectAreaMonth('polos')" data-area="polos">Polos</div>
-    <div class="wf-btn wf-btn-month" onclick="selectAreaMonth('especialistas')" data-area="especialistas">Especialistas</div>
-    <div class="wf-btn wf-btn-month" onclick="selectAreaMonth('franquias')" data-area="franquias">Franquias</div>
+    <div class="wf-btn wf-btn-acum active" onclick="selectAreaAcum('consolidado')" data-area="consolidado">Consolidado</div>
+    <div class="wf-btn wf-btn-acum" onclick="selectAreaAcum('polos')" data-area="polos">Polos</div>
+    <div class="wf-btn wf-btn-acum" onclick="selectAreaAcum('especialistas')" data-area="especialistas">Especialistas</div>
+    <div class="wf-btn wf-btn-acum" onclick="selectAreaAcum('franquias')" data-area="franquias">Franquias</div>
   </div>
-  <div class="reg-group-month" id="reg-group-month" style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;overflow:hidden;max-height:0;transition:max-height .25s ease;margin-bottom:4px;">
-    <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_centro_norte')" data-reg="m_centro_norte">Centro Norte</div>
-    <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_nordeste')" data-reg="m_nordeste">Nordeste</div>
-    <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_sp')" data-reg="m_sp">SP</div>
-    <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_sudeste')" data-reg="m_sudeste">Sudeste</div>
-    <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_sul')" data-reg="m_sul">Sul</div>
+  <div id="reg-group-acum" style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;overflow:hidden;max-height:0;transition:max-height .25s ease;margin-bottom:4px;">
+    <div class="wf-btn wf-btn-acum reg" data-reg="acum_cn" onclick="selectRegAcum('acum_cn','m_centro_norte','tcn')">Centro Norte</div>
+    <div class="wf-btn wf-btn-acum reg" data-reg="acum_ne" onclick="selectRegAcum('acum_ne','m_nordeste','tne')">Nordeste</div>
+    <div class="wf-btn wf-btn-acum reg" data-reg="acum_sp" onclick="selectRegAcum('acum_sp','m_sp','tsp')">SP</div>
+    <div class="wf-btn wf-btn-acum reg" data-reg="acum_se" onclick="selectRegAcum('acum_se','m_sudeste','tse')">Sudeste</div>
+    <div class="wf-btn wf-btn-acum reg" data-reg="acum_sul" onclick="selectRegAcum('acum_sul','m_sul','tsul')">Sul</div>
   </div>
   <svg id="svg-funnel-month" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
 </div>
 
 <!-- GRÁFICO TPV M1 ACUMULADO -->
 <div style="margin-top:16px;">
-  <div style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;margin-bottom:6px;">
-    <div class="wf-btn wf-btn-tpv active" data-area="consolidado" onclick="selectAreaTPV('consolidado')">Consolidado</div>
-    <div class="wf-btn wf-btn-tpv" data-area="polos" onclick="selectAreaTPV('polos')">Polos</div>
-    <div class="wf-btn wf-btn-tpv" data-area="especialistas" onclick="selectAreaTPV('especialistas')">Especialistas</div>
-    <div class="wf-btn wf-btn-tpv" data-area="franquias" onclick="selectAreaTPV('franquias')">Franquias</div>
-  </div>
-  <div class="reg-group-tpv" id="reg-group-tpv" style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;overflow:hidden;max-height:0;transition:max-height .25s ease;margin-bottom:4px;">
-    <div class="wf-btn wf-btn-tpv reg" data-reg="tcn" onclick="selectRegTPV('tcn')">Centro Norte</div>
-    <div class="wf-btn wf-btn-tpv reg" data-reg="tne" onclick="selectRegTPV('tne')">Nordeste</div>
-    <div class="wf-btn wf-btn-tpv reg" data-reg="tsp" onclick="selectRegTPV('tsp')">SP</div>
-    <div class="wf-btn wf-btn-tpv reg" data-reg="tse" onclick="selectRegTPV('tse')">Sudeste</div>
-    <div class="wf-btn wf-btn-tpv reg" data-reg="tsul" onclick="selectRegTPV('tsul')">Sul</div>
-  </div>
   <svg id="svg-tpv-month" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
 </div>
 
@@ -711,56 +698,41 @@ function selectRegDay(reg) {
   _buildWF('svg-funnel-day',_wfData.day[reg]);
 }
 
-function selectAreaMonth(area) {
-  document.querySelectorAll('.wf-btn-month:not(.reg)').forEach(b=>b.classList.toggle('active',b.dataset.area===area));
-  const rg=document.getElementById('reg-group-month');
+function selectAreaAcum(area) {
+  document.querySelectorAll('.wf-btn-acum:not(.reg)').forEach(b=>b.classList.toggle('active',b.dataset.area===area));
+  const rg=document.getElementById('reg-group-acum');
   if(area==='polos'){
     rg.style.maxHeight='40px';
-    document.querySelectorAll('.wf-btn-month.reg').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.remove('active'));
     _buildWF('svg-funnel-month',_wfData.month.polos);
-  } else {
-    rg.style.maxHeight='0';
-    document.querySelectorAll('.wf-btn-month.reg').forEach(b=>b.classList.remove('active'));
-    _buildWF('svg-funnel-month',_wfData.month[area]);
-  }
-}
-
-function selectRegMonth(reg) {
-  document.querySelectorAll('.wf-btn-month.reg').forEach(b=>b.classList.toggle('active',b.dataset.reg===reg));
-  _buildWF('svg-funnel-month',_wfData.month[reg]);
-}
-
-// TPV M1 ACUMULADO
-const _tpvData = {
-  consolidado:  [ {name:["TPV M1","Meta"],       val:"R$1.039,6mi",delta:null,  type:"ref"}, {name:["Base Ativa","M1"],val:"30.974",delta:-3.2,type:"neg"}, {name:["Prod M1","Ativos/HCDU"],val:"0,54",delta:-1.2,type:"neg"}, {name:["TPV","Médio"],val:"R$32.244",delta:-0.8,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$998,7mi",delta:-3.9,type:"result"} ],
-  polos:        [ {name:["TPV M1","Meta"],         val:"R$491,3mi", delta:null,  type:"ref"}, {name:["Base Ativa","M1"],val:"18.158",delta:-6.1,type:"neg"}, {name:["Prod M1","Ativos/HCDU"],val:"0,50",delta:-5.4,type:"neg"}, {name:["TPV","Médio"],val:"R$27.339",delta:+7.6,type:"pos"}, {name:["TPV M1","Realizado"],val:"R$496,4mi",delta:+1.0,type:"result"} ],
-  tcn:          [ {name:["TPV M1","Meta"],         val:"R$106,3mi", delta:null,  type:"ref"}, {name:["Base Ativa","M1"],val:"3.283",delta:-14.9,type:"neg"}, {name:["Prod M1","Ativos/HCDU"],val:"0,48",delta:-14.4,type:"neg"}, {name:["TPV","Médio"],val:"R$29.340",delta:+6.5,type:"pos"}, {name:["TPV M1","Realizado"],val:"R$96,3mi",delta:-9.4,type:"result"} ],
-  tne:          [ {name:["TPV M1","Meta"],         val:"R$94,9mi",  delta:null,  type:"ref"}, {name:["Base Ativa","M1"],val:"3.939",delta:+1.1,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,62",delta:+8.7,type:"pos"}, {name:["TPV","Médio"],val:"R$26.431",delta:+8.5,type:"pos"}, {name:["TPV M1","Realizado"],val:"R$104,1mi",delta:+9.7,type:"result"} ],
-  tsp:          [ {name:["TPV M1","Meta"],         val:"R$109,7mi", delta:null,  type:"ref"}, {name:["Base Ativa","M1"],val:"4.188",delta:-4.7,type:"neg"}, {name:["Prod M1","Ativos/HCDU"],val:"0,48",delta:-4.4,type:"neg"}, {name:["TPV","Médio"],val:"R$25.929",delta:+3.9,type:"pos"}, {name:["TPV M1","Realizado"],val:"R$108,6mi",delta:-1.0,type:"result"} ],
-  tse:          [ {name:["TPV M1","Meta"],         val:"R$90,0mi",  delta:null,  type:"ref"}, {name:["Base Ativa","M1"],val:"3.428",delta:-4.5,type:"neg"}, {name:["Prod M1","Ativos/HCDU"],val:"0,57",delta:-3.7,type:"neg"}, {name:["TPV","Médio"],val:"R$30.101",delta:+20.1,type:"pos"}, {name:["TPV M1","Realizado"],val:"R$103,2mi",delta:+14.7,type:"result"} ],
-  tsul:         [ {name:["TPV M1","Meta"],         val:"R$90,4mi",  delta:null,  type:"ref"}, {name:["Base Ativa","M1"],val:"3.320",delta:-7.6,type:"neg"}, {name:["Prod M1","Ativos/HCDU"],val:"0,49",delta:-12.2,type:"neg"}, {name:["TPV","Médio"],val:"R$25.363",delta:+0.8,type:"pos"}, {name:["TPV M1","Realizado"],val:"R$84,2mi",delta:-6.9,type:"result"} ],
-  especialistas:[ {name:["TPV M1","Meta"],         val:"R$364,9mi", delta:null,  type:"ref"}, {name:["Base Ativa","M1"],val:"2.759",delta:-21.7,type:"neg"}, {name:["Prod M1","Ativos/HCDU"],val:"0,32",delta:-14.0,type:"neg"}, {name:["TPV","Médio"],val:"R$106.314",delta:+2.7,type:"pos"}, {name:["TPV M1","Realizado"],val:"R$293,3mi",delta:-19.6,type:"result"} ],
-  franquias:    [ {name:["TPV M1","Meta"],         val:"R$183,4mi", delta:null,  type:"ref"}, {name:["Base Ativa","M1"],val:"10.057",delta:+10.2,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,74",delta:+11.2,type:"pos"}, {name:["TPV","Médio"],val:"R$20.779",delta:+3.4,type:"pos"}, {name:["TPV M1","Realizado"],val:"R$209,0mi",delta:+13.9,type:"result"} ],
-};
-
-function selectAreaTPV(area) {
-  document.querySelectorAll('.wf-btn-tpv:not(.reg)').forEach(b=>b.classList.toggle('active',b.dataset.area===area));
-  const rg=document.getElementById('reg-group-tpv');
-  if(area==='polos'){
-    rg.style.maxHeight='40px';
-    document.querySelectorAll('.wf-btn-tpv.reg').forEach(b=>b.classList.remove('active'));
     _buildWF('svg-tpv-month',_tpvData.polos);
   } else {
     rg.style.maxHeight='0';
-    document.querySelectorAll('.wf-btn-tpv.reg').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.remove('active'));
+    _buildWF('svg-funnel-month',_wfData.month[area]);
     _buildWF('svg-tpv-month',_tpvData[area]);
   }
 }
 
-function selectRegTPV(reg) {
-  document.querySelectorAll('.wf-btn-tpv.reg').forEach(b=>b.classList.toggle('active',b.dataset.reg===reg));
-  _buildWF('svg-tpv-month',_tpvData[reg]);
+function selectRegAcum(reg, regMonth, regTpv) {
+  document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.toggle('active',b.dataset.reg===reg));
+  _buildWF('svg-funnel-month',_wfData.month[regMonth]);
+  _buildWF('svg-tpv-month',_tpvData[regTpv]);
 }
+
+
+// TPV M1 ACUMULADO
+const _tpvData = {
+  consolidado:  [ {name:["TPV M1","Meta"],       val:"R$1.039,6mi",delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$32.244",delta:-0.8,type:"neg"}, {name:["Prod M1","Ativos/HCDU"],val:"0,54",delta:-1.2,type:"neg"}, {name:["HC","Ativo"],val:"3.857",delta:-1.8,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$998,7mi",delta:-3.9,type:"result"} ],
+  polos:        [ {name:["TPV M1","Meta"],         val:"R$491,3mi", delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$27.339",delta:+7.6,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,52",delta:-5.4,type:"neg"}, {name:["HC","Ativo"],val:"2.339",delta:-0.8,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$496,4mi",delta:+1.0,type:"result"} ],
+  tcn:          [ {name:["TPV M1","Meta"],         val:"R$106,3mi", delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$29.340",delta:+6.5,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,48",delta:-14.4,type:"neg"}, {name:["HC","Ativo"],val:"453",delta:-0.6,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$96,3mi",delta:-9.4,type:"result"} ],
+  tne:          [ {name:["TPV M1","Meta"],         val:"R$94,9mi",  delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$26.431",delta:+8.5,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,62",delta:+8.7,type:"pos"}, {name:["HC","Ativo"],val:"426",delta:-7.0,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$104,1mi",delta:+9.7,type:"result"} ],
+  tsp:          [ {name:["TPV M1","Meta"],         val:"R$109,7mi", delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$25.929",delta:+3.9,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,48",delta:-4.4,type:"neg"}, {name:["HC","Ativo"],val:"584",delta:-0.3,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$108,6mi",delta:-1.0,type:"result"} ],
+  tse:          [ {name:["TPV M1","Meta"],         val:"R$90,0mi",  delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$30.101",delta:+20.1,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,57",delta:-3.7,type:"neg"}, {name:["HC","Ativo"],val:"421",delta:-0.8,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$103,2mi",delta:+14.7,type:"result"} ],
+  tsul:         [ {name:["TPV M1","Meta"],         val:"R$90,4mi",  delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$25.363",delta:+0.8,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,49",delta:-12.2,type:"neg"}, {name:["HC","Ativo"],val:"456",delta:+5.2,type:"pos"}, {name:["TPV M1","Realizado"],val:"R$84,2mi",delta:-6.9,type:"result"} ],
+  especialistas:[ {name:["TPV M1","Meta"],         val:"R$364,9mi", delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$106.314",delta:+2.7,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,35",delta:-14.0,type:"neg"}, {name:["HC","Ativo"],val:"537",delta:-8.5,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$293,3mi",delta:-19.6,type:"result"} ],
+  franquias:    [ {name:["TPV M1","Meta"],         val:"R$183,4mi", delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$20.779",delta:+3.4,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,68",delta:+11.2,type:"pos"}, {name:["HC","Ativo"],val:"981",delta:-0.5,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$209,0mi",delta:+13.9,type:"result"} ],
+};
 
 _buildWF('svg-funnel-day', _wfData.day.consolidado);
 _buildWF('svg-funnel-month', _wfData.month.consolidado);
