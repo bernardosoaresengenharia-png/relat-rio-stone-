@@ -118,6 +118,7 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 .wf-btn.reg.active{background:#4A6260;border-color:#4A6260;color:#fff;}
 .footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;}
 .footer p{font-size:11px;color:var(--dim);font-family:'DM Mono',monospace;}
+.reg-group-day,.reg-group-month,.reg-group-tpv{flex-direction:column;}
 @media(max-width:900px){
   .igrid{grid-template-columns:repeat(2,1fr);}
   .side-by-side{grid-template-columns:1fr;}
@@ -141,8 +142,13 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
   .sec-header{flex-wrap:wrap;gap:6px;}
   .sec-header .sec-sub{margin-left:0;width:100%;}
   .wf-wrap{flex-direction:column !important;}
-  .wf-wrap .wf-buttons{flex-direction:row !important;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
+  .wf-wrap .wf-buttons{flex-direction:row !important;flex-wrap:wrap;gap:5px;margin-bottom:8px;width:100% !important;}
   .wf-wrap svg{height:280px !important;width:100% !important;}
+  .wf-btn.reg{margin-left:0 !important;}
+  .reg-group-day, .reg-group-month, .reg-group-tpv{flex-direction:row !important;flex-wrap:wrap !important;}
+  .reg-group-day.open, .reg-group-month.open{max-height:80px !important;}
+  [id^="reg-group"]{flex-direction:row !important;flex-wrap:wrap !important;}
+  [id^="reg-group"][style*="200px"]{max-height:60px !important;}
 }
 </style>
 </head>
@@ -300,21 +306,21 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 </table></div>
 
 <!-- GRÁFICO WATERFALL DIA -->
-<div class="wf-wrap" style="margin-top:16px;display:flex;align-items:center;gap:10px;">
-  <div class="wf-buttons" style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
+<div style="margin-top:16px;">
+  <div style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;margin-bottom:6px;">
     <div class="wf-btn wf-btn-day active" onclick="selectAreaDay('consolidado')" data-area="consolidado">Consolidado</div>
     <div class="wf-btn wf-btn-day" onclick="selectAreaDay('polos')" data-area="polos">Polos</div>
-    <div class="reg-group-day" id="reg-group-day" style="display:flex;flex-direction:column;gap:4px;overflow:hidden;max-height:0;transition:max-height .25s ease;">
-      <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('centro_norte')" data-reg="centro_norte">Centro Norte</div>
-      <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('nordeste')" data-reg="nordeste">Nordeste</div>
-      <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('sp')" data-reg="sp">SP</div>
-      <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('sudeste')" data-reg="sudeste">Sudeste</div>
-      <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('sul')" data-reg="sul">Sul</div>
-    </div>
     <div class="wf-btn wf-btn-day" onclick="selectAreaDay('especialistas')" data-area="especialistas">Especialistas</div>
     <div class="wf-btn wf-btn-day" onclick="selectAreaDay('franquias')" data-area="franquias">Franquias</div>
   </div>
-  <svg id="svg-funnel-day" viewBox="0 0 820 360" style="display:block;height:250px;flex:1;"></svg>
+  <div class="reg-group-day" id="reg-group-day" style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;overflow:hidden;max-height:0;transition:max-height .25s ease;margin-bottom:4px;">
+    <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('centro_norte')" data-reg="centro_norte">Centro Norte</div>
+    <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('nordeste')" data-reg="nordeste">Nordeste</div>
+    <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('sp')" data-reg="sp">SP</div>
+    <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('sudeste')" data-reg="sudeste">Sudeste</div>
+    <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('sul')" data-reg="sul">Sul</div>
+  </div>
+  <svg id="svg-funnel-day" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
 </div>
 
 </div><!-- fim s1 -->
@@ -481,39 +487,39 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 </table></div>
 
 <!-- GRÁFICO WATERFALL MÊS -->
-<div class="wf-wrap" style="margin-top:16px;display:flex;align-items:center;gap:10px;">
-  <div class="wf-buttons" style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
+<div style="margin-top:16px;">
+  <div style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;margin-bottom:6px;">
     <div class="wf-btn wf-btn-month active" onclick="selectAreaMonth('consolidado')" data-area="consolidado">Consolidado</div>
     <div class="wf-btn wf-btn-month" onclick="selectAreaMonth('polos')" data-area="polos">Polos</div>
-    <div class="reg-group-month" id="reg-group-month" style="display:flex;flex-direction:column;gap:4px;overflow:hidden;max-height:0;transition:max-height .25s ease;">
-      <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_centro_norte')" data-reg="m_centro_norte">Centro Norte</div>
-      <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_nordeste')" data-reg="m_nordeste">Nordeste</div>
-      <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_sp')" data-reg="m_sp">SP</div>
-      <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_sudeste')" data-reg="m_sudeste">Sudeste</div>
-      <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_sul')" data-reg="m_sul">Sul</div>
-    </div>
     <div class="wf-btn wf-btn-month" onclick="selectAreaMonth('especialistas')" data-area="especialistas">Especialistas</div>
     <div class="wf-btn wf-btn-month" onclick="selectAreaMonth('franquias')" data-area="franquias">Franquias</div>
   </div>
-  <svg id="svg-funnel-month" viewBox="0 0 820 360" style="display:block;height:250px;flex:1;"></svg>
+  <div class="reg-group-month" id="reg-group-month" style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;overflow:hidden;max-height:0;transition:max-height .25s ease;margin-bottom:4px;">
+    <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_centro_norte')" data-reg="m_centro_norte">Centro Norte</div>
+    <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_nordeste')" data-reg="m_nordeste">Nordeste</div>
+    <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_sp')" data-reg="m_sp">SP</div>
+    <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_sudeste')" data-reg="m_sudeste">Sudeste</div>
+    <div class="wf-btn wf-btn-month reg" onclick="selectRegMonth('m_sul')" data-reg="m_sul">Sul</div>
+  </div>
+  <svg id="svg-funnel-month" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
 </div>
 
 <!-- GRÁFICO TPV M1 ACUMULADO -->
-<div class="wf-wrap" style="margin-top:16px;display:flex;align-items:center;gap:10px;">
-  <div class="wf-buttons" style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;">
+<div style="margin-top:16px;">
+  <div style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;margin-bottom:6px;">
     <div class="wf-btn wf-btn-tpv active" data-area="consolidado" onclick="selectAreaTPV('consolidado')">Consolidado</div>
     <div class="wf-btn wf-btn-tpv" data-area="polos" onclick="selectAreaTPV('polos')">Polos</div>
-    <div class="reg-group-tpv" id="reg-group-tpv" style="display:flex;flex-direction:column;gap:4px;overflow:hidden;max-height:0;transition:max-height .25s ease;">
-      <div class="wf-btn wf-btn-tpv reg" data-reg="tcn" onclick="selectRegTPV('tcn')">Centro Norte</div>
-      <div class="wf-btn wf-btn-tpv reg" data-reg="tne" onclick="selectRegTPV('tne')">Nordeste</div>
-      <div class="wf-btn wf-btn-tpv reg" data-reg="tsp" onclick="selectRegTPV('tsp')">SP</div>
-      <div class="wf-btn wf-btn-tpv reg" data-reg="tse" onclick="selectRegTPV('tse')">Sudeste</div>
-      <div class="wf-btn wf-btn-tpv reg" data-reg="tsul" onclick="selectRegTPV('tsul')">Sul</div>
-    </div>
     <div class="wf-btn wf-btn-tpv" data-area="especialistas" onclick="selectAreaTPV('especialistas')">Especialistas</div>
     <div class="wf-btn wf-btn-tpv" data-area="franquias" onclick="selectAreaTPV('franquias')">Franquias</div>
   </div>
-  <svg id="svg-tpv-month" viewBox="0 0 820 360" style="display:block;height:250px;flex:1;"></svg>
+  <div class="reg-group-tpv" id="reg-group-tpv" style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;overflow:hidden;max-height:0;transition:max-height .25s ease;margin-bottom:4px;">
+    <div class="wf-btn wf-btn-tpv reg" data-reg="tcn" onclick="selectRegTPV('tcn')">Centro Norte</div>
+    <div class="wf-btn wf-btn-tpv reg" data-reg="tne" onclick="selectRegTPV('tne')">Nordeste</div>
+    <div class="wf-btn wf-btn-tpv reg" data-reg="tsp" onclick="selectRegTPV('tsp')">SP</div>
+    <div class="wf-btn wf-btn-tpv reg" data-reg="tse" onclick="selectRegTPV('tse')">Sudeste</div>
+    <div class="wf-btn wf-btn-tpv reg" data-reg="tsul" onclick="selectRegTPV('tsul')">Sul</div>
+  </div>
+  <svg id="svg-tpv-month" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
 </div>
 
 </div><!-- fim s2 -->
@@ -690,7 +696,7 @@ function selectAreaDay(area) {
   document.querySelectorAll('.wf-btn-day:not(.reg)').forEach(b=>b.classList.toggle('active',b.dataset.area===area));
   const rg=document.getElementById('reg-group-day');
   if(area==='polos'){
-    rg.style.maxHeight='200px';
+    rg.style.maxHeight='40px';
     document.querySelectorAll('.wf-btn-day.reg').forEach(b=>b.classList.remove('active'));
     _buildWF('svg-funnel-day',_wfData.day.polos);
   } else {
@@ -709,7 +715,7 @@ function selectAreaMonth(area) {
   document.querySelectorAll('.wf-btn-month:not(.reg)').forEach(b=>b.classList.toggle('active',b.dataset.area===area));
   const rg=document.getElementById('reg-group-month');
   if(area==='polos'){
-    rg.style.maxHeight='200px';
+    rg.style.maxHeight='40px';
     document.querySelectorAll('.wf-btn-month.reg').forEach(b=>b.classList.remove('active'));
     _buildWF('svg-funnel-month',_wfData.month.polos);
   } else {
@@ -741,7 +747,7 @@ function selectAreaTPV(area) {
   document.querySelectorAll('.wf-btn-tpv:not(.reg)').forEach(b=>b.classList.toggle('active',b.dataset.area===area));
   const rg=document.getElementById('reg-group-tpv');
   if(area==='polos'){
-    rg.style.maxHeight='200px';
+    rg.style.maxHeight='40px';
     document.querySelectorAll('.wf-btn-tpv.reg').forEach(b=>b.classList.remove('active'));
     _buildWF('svg-tpv-month',_tpvData.polos);
   } else {
