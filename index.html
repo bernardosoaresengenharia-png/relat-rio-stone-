@@ -84,7 +84,7 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 .icard p{font-size:11px;line-height:1.6;color:var(--muted);text-align:justify;}
 .icard p strong{color:var(--text);}
 .concl{background:rgba(200,30,60,.03);border:1px solid rgba(200,30,60,.15);border-left:4px solid var(--red);border-radius:12px;padding:22px 26px;margin-bottom:32px;}
-.concl .ctag{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;letter-spacing:.05em;color:#B81F3A;margin-bottom:12px;}
+.concl .ctag{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.05em;color:#B81F3A;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .concl h2{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:11px;}
 .concl p{font-size:13px;line-height:1.75;color:#4A2428;text-align:justify;}
 .concl p+p{margin-top:9px;}
@@ -329,7 +329,7 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 
 <!-- KPI CARDS MÊS VISÍVEIS -->
 <div style="border-top:1px solid var(--border);margin:40px 0 28px;"></div>
-<div class="stitle no-line" style="margin-top:0;"><span class="sbadge sb-month">Acumulado</span> Resultados Consolidados · Total</div>
+<div class="stitle no-line" style="margin-top:0;"><span class="sbadge sb-month">Acumulado</span> Resultados Consolidados · Total <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);font-weight:400;">(Polos · Fran · Espec)</span></div>
 <div class="kpi-grid-6" style="grid-template-columns:repeat(4,1fr);">
   <div class="kpi-card bad">
     <div class="kpi-label">Credenciamentos</div>
@@ -440,6 +440,8 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
     </td></tr>
     <tr><td>Especialistas</td><td class="v">2.019</td><td class="m">2.961</td><td class="dp neg">−31,8%</td><td class="v">R$ 293,3mi</td><td class="m">R$ 364,9mi</td><td class="dp neg">−19,6%</td><td class="v">0,25</td><td class="m">0,34</td><td class="dp neg">−25,1%</td><td class="v">R$ 106,3k</td><td class="m">R$ 103,5k</td><td class="dp pos">+2,8%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
     <tr><td>Franquias</td><td class="v">7.675</td><td class="m">7.328</td><td class="dp pos">+4,7%</td><td class="v">R$ 209,0mi</td><td class="m">R$ 183,4mi</td><td class="dp pos">+13,9%</td><td class="v">0,52</td><td class="m">0,49</td><td class="dp pos">+5,7%</td><td class="v">R$ 20,8k</td><td class="m">R$ 20,1k</td><td class="dp pos">+3,5%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
+    <tr><td>Digital Hunter</td><td class="v">189</td><td class="m">271</td><td class="dp neg">−30,3%</td><td class="v">R$ 23,1mi</td><td class="m">R$ 17,8mi</td><td class="dp pos">+29,6%</td><td class="v">0,27</td><td></td><td></td><td colspan="3"></td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span></td></tr>
+    <tr><td>Renda Extra</td><td></td><td></td><td></td><td class="v">R$ 165,6mi</td><td class="m">R$ 437,4mi</td><td class="dp neg">−62,1%</td><td colspan="3"></td><td colspan="3"></td><td><span class="arr a-up">↑</span></td></tr>
   </tbody>
 </table></div>
 
@@ -490,6 +492,12 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 
 <!-- CONTROLE ÚNICO PARA OS DOIS GRÁFICOS DO MÊS -->
 <div style="margin-top:16px;">
+  <!-- Toggle NC / TPV M1 -->
+  <div style="display:flex;flex-direction:row;gap:4px;margin-bottom:10px;">
+    <div id="toggle-nc" onclick="toggleAcumChart('nc')" style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;padding:5px 14px;border-radius:6px;cursor:pointer;background:#1A2420;color:#fff;border:1px solid #1A2420;transition:all .15s;">NC</div>
+    <div id="toggle-tpv" onclick="toggleAcumChart('tpv')" style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;padding:5px 14px;border-radius:6px;cursor:pointer;background:#F4F6F5;color:#5A706A;border:1px solid #DDE2DF;transition:all .15s;">TPV M1</div>
+  </div>
+  <!-- Botões de área -->
   <div style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;margin-bottom:6px;">
     <div class="wf-btn wf-btn-acum active" onclick="selectAreaAcum('consolidado')" data-area="consolidado">Consolidado</div>
     <div class="wf-btn wf-btn-acum" onclick="selectAreaAcum('polos')" data-area="polos">Polos</div>
@@ -503,12 +511,14 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
     <div class="wf-btn wf-btn-acum reg" data-reg="acum_se" onclick="selectRegAcum('acum_se','m_sudeste','tse')">Sudeste</div>
     <div class="wf-btn wf-btn-acum reg" data-reg="acum_sul" onclick="selectRegAcum('acum_sul','m_sul','tsul')">Sul</div>
   </div>
-  <svg id="svg-funnel-month" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
-</div>
-
-<!-- GRÁFICO TPV M1 ACUMULADO -->
-<div style="margin-top:4px;">
-  <svg id="svg-tpv-month" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
+  <!-- Gráfico NC -->
+  <div id="chart-nc">
+    <svg id="svg-funnel-month" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
+  </div>
+  <!-- Gráfico TPV M1 (oculto por padrão) -->
+  <div id="chart-tpv" style="display:none;">
+    <svg id="svg-tpv-month" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
+  </div>
 </div>
 
 </div><!-- fim s2 -->
@@ -709,6 +719,24 @@ function selectRegDay(reg) {
   _buildWF('svg-funnel-day',_wfData.day[reg]);
 }
 
+function toggleAcumChart(mode) {
+  const isNC = mode === 'nc';
+  document.getElementById('chart-nc').style.display = isNC ? 'block' : 'none';
+  document.getElementById('chart-tpv').style.display = isNC ? 'none' : 'block';
+  const tnc = document.getElementById('toggle-nc');
+  const ttpv = document.getElementById('toggle-tpv');
+  tnc.style.background = isNC ? '#1A2420' : '#F4F6F5';
+  tnc.style.color = isNC ? '#fff' : '#5A706A';
+  tnc.style.borderColor = isNC ? '#1A2420' : '#DDE2DF';
+  ttpv.style.background = isNC ? '#F4F6F5' : '#1A2420';
+  ttpv.style.color = isNC ? '#5A706A' : '#fff';
+  ttpv.style.borderColor = isNC ? '#DDE2DF' : '#1A2420';
+  // Redesenha o gráfico visível para garantir dimensões corretas
+  if(!isNC) _buildWF('svg-tpv-month', _currentTpvData || _tpvData.consolidado);
+}
+
+let _currentTpvData = null;
+
 function selectAreaAcum(area) {
   document.querySelectorAll('.wf-btn-acum:not(.reg)').forEach(b=>b.classList.toggle('active',b.dataset.area===area));
   const rg=document.getElementById('reg-group-acum');
@@ -716,11 +744,13 @@ function selectAreaAcum(area) {
     rg.style.maxHeight='40px';
     document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.remove('active'));
     _buildWF('svg-funnel-month',_wfData.month.polos);
+    _currentTpvData = _tpvData.polos;
     _buildWF('svg-tpv-month',_tpvData.polos);
   } else {
     rg.style.maxHeight='0';
     document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.remove('active'));
     _buildWF('svg-funnel-month',_wfData.month[area]);
+    _currentTpvData = _tpvData[area];
     _buildWF('svg-tpv-month',_tpvData[area]);
   }
 }
@@ -728,6 +758,7 @@ function selectAreaAcum(area) {
 function selectRegAcum(reg, regMonth, regTpv) {
   document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.toggle('active',b.dataset.reg===reg));
   _buildWF('svg-funnel-month',_wfData.month[regMonth]);
+  _currentTpvData = _tpvData[regTpv];
   _buildWF('svg-tpv-month',_tpvData[regTpv]);
 }
 
