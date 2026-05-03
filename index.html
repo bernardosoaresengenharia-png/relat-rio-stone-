@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Relatório Comercial — Stone · 29/04/2026</title>
+<title>Relatório Comercial — Stone · 30/04/2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--green:#00A868;--green-dark:#007A4C;--red:#D92B4B;--bg:#F4F6F5;--bg2:#FFFFFF;--border:#DDE2DF;--text:#1A2420;--muted:#5A706A;--dim:#8FA49E;}
@@ -34,15 +34,15 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;pad
 .sbadge{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.07em;flex-shrink:0;}
 .sb-day{background:rgba(0,168,104,.1);color:#006B40;}
 .sb-month{background:rgba(60,120,220,.08);color:#2A5AAA;}
+.sb-close{background:rgba(200,30,60,.08);color:#B81F3A;}
 .sess-btn{display:flex;align-items:center;gap:10px;width:100%;background:#EAEDEB;border:1px solid #C8CECC;border-radius:10px;padding:14px 18px;cursor:pointer;margin-bottom:0;transition:background .15s,border-radius .15s;box-shadow:0 1px 3px rgba(0,0,0,.04);}
 .sess-btn:hover{background:#DDE2DF;}
 .sess-btn.open{background:#DDE2DF;border-bottom-color:transparent;border-radius:10px 10px 0 0;box-shadow:none;}
 .sess-body{display:none;padding:16px;border:1px solid #C8CECC;border-top:none;border-radius:0 0 10px 10px;background:#FFFFFF;margin-bottom:4px;box-shadow:0 1px 3px rgba(0,0,0,.04);}
-.sess-body.open{display:block;}.sess-label{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text);flex:1;}
+.sess-body.open{display:block;}
+.sess-label{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text);flex:1;}
 .sess-chev{font-size:10px;color:var(--muted);transition:transform .2s;flex-shrink:0;}
 .sess-btn.open .sess-chev{transform:rotate(180deg);}
-.sess-body{display:none;padding-bottom:8px;}
-.sess-body.open{display:block;}
 .tw{overflow-x:auto;margin-bottom:20px;border-radius:10px;border:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.04);}
 table{width:100%;border-collapse:collapse;font-size:12px;}
 thead th{background:#EEF2F0;font-family:'DM Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:9px 11px;text-align:center;border-bottom:2px solid var(--border);white-space:nowrap;}
@@ -73,7 +73,6 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 .exp-btn.open .exp-chev{transform:rotate(180deg);}
 .exp-body{display:none;}
 .exp-body.open{display:block;}
-.side-by-side{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
 .igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
 .icard{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.04);}
 .icard.good{border-left:3px solid var(--green);}
@@ -89,10 +88,9 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 .concl p{font-size:13px;line-height:1.75;color:#4A2428;text-align:justify;}
 .concl p+p{margin-top:9px;}
 .concl strong{color:var(--text);font-weight:600;}
-.kpi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,260px));gap:28px;margin-bottom:20px;justify-content:center;}
 .kpi-grid-6{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:20px;}
 @media(max-width:900px){.kpi-grid-6{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:600px){.kpi-grid-6{grid-template-columns:1fr;}}
+@media(max-width:600px){.kpi-grid-6{grid-template-columns:repeat(2,1fr);}}
 .kpi-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,.05);display:flex;flex-direction:column;gap:2px;}
 .kpi-card.good{background:rgba(0,168,104,.04);border-color:rgba(0,168,104,.25);}
 .kpi-card.bad{background:rgba(200,30,60,.03);border-color:rgba(200,30,60,.15);}
@@ -105,24 +103,16 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 .kpi-arrow{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;line-height:1;}
 .kpi-arrow-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.05em;}
 .kpi-meta{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);margin-top:3px;border-top:1px solid var(--border);padding-top:5px;}
-.sec-header{display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;margin-bottom:16px;}
-.sec-header.day{background:#ECEEF4;border:1px solid #D0D4E4;margin-top:28px;}
-.stitle.no-line::after{display:none;}
-.sec-header.month{background:#ECEEF4;border:1px solid #D0D4E4;margin-top:0;padding-top:10px;}.sec-header .sec-ico{font-size:14px;}
-.sec-header .sec-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text);}
-.sec-header .sec-sub{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-left:auto;letter-spacing:.06em;text-transform:uppercase;}
 .wf-btn{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;cursor:pointer;border:1px solid #DDE2DF;background:#F4F6F5;color:#5A706A;white-space:nowrap;transition:all .15s;user-select:none;}
 .wf-btn:hover{background:#E8EDEB;color:#1A2420;}
 .wf-btn.active{background:#1A2420;color:#fff;border-color:#1A2420;font-weight:600;}
-.wf-btn.reg{font-size:9px;padding:3px 8px;margin-left:10px;border-color:#C0CCC8;}
+.wf-btn.reg{font-size:9px;padding:3px 8px;margin-left:0;border-color:#C0CCC8;}
 .wf-btn.reg.active{background:#4A6260;border-color:#4A6260;color:#fff;}
 .footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;}
 .footer p{font-size:11px;color:var(--dim);font-family:'DM Mono',monospace;}
 .reg-group-day,.reg-group-month,.reg-group-tpv{flex-direction:column;}
 @media(max-width:900px){
   .igrid{grid-template-columns:repeat(2,1fr);}
-  .side-by-side{grid-template-columns:1fr;}
-  .kpi-grid-6{grid-template-columns:repeat(3,1fr) !important;}
 }
 @media(max-width:600px){
   body{padding:16px 12px;}
@@ -133,26 +123,15 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
   .logo{font-size:16px;}
   .date-tag{font-size:9px;margin-top:0;}
   .igrid{grid-template-columns:1fr;}
-  .kpi-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
-  .kpi-grid-6{grid-template-columns:repeat(2,1fr) !important;gap:10px;}
+  .kpi-grid-6{grid-template-columns:repeat(2,1fr)!important;gap:10px;}
   .kpi-value{font-size:20px;}
   .tw{font-size:11px;}
   td{padding:7px 8px;}
   .exec p{font-size:12px;}
-  .sec-header{flex-wrap:wrap;gap:6px;}
-  .sec-header .sec-sub{margin-left:0;width:100%;}
-  .wf-wrap{flex-direction:column !important;}
-  .wf-wrap .wf-buttons{flex-direction:row !important;flex-wrap:wrap;gap:5px;margin-bottom:8px;width:100% !important;}
-  .stitle { font-size: 9px; letter-spacing: .08em; }
-  .wf-wrap svg{height:280px !important;width:100% !important;}
-  #svg-funnel-day, #svg-funnel-month, #svg-tpv-month, #svg-funnel-day ~ svg{height:180px !important;width:100% !important;}
-  [id^="svg-"]{height:180px !important;width:100% !important;}
-  [id^="fcst-svg-"]{height:160px !important;width:100% !important;}
-  .wf-btn.reg{margin-left:0 !important;}
-  .reg-group-day, .reg-group-month, .reg-group-tpv{flex-direction:row !important;flex-wrap:wrap !important;}
-  .reg-group-day.open, .reg-group-month.open{max-height:80px !important;}
-  [id^="reg-group"]{flex-direction:row !important;flex-wrap:wrap !important;}
-  [id^="reg-group"][style*="200px"]{max-height:60px !important;}
+  .stitle{font-size:9px;letter-spacing:.08em;}
+  .wf-wrap svg{height:280px!important;width:100%!important;}
+  [id^="svg-"]{height:180px!important;width:100%!important;}
+  [id^="fcst-svg-"]{height:160px!important;width:100%!important;}
 }
 </style>
 </head>
@@ -161,85 +140,84 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 <div class="header">
   <div>
     <h1>Relatório <span>Comercial</span></h1>
-
   </div>
   <div class="header-right">
     <div class="logo">Stone</div>
-    <div class="date-tag">Gerado em 30/04/2026</div>
+    <div class="date-tag">Gerado em 04/05/2026</div>
   </div>
 </div>
 
 <!-- RESUMO EXECUTIVO -->
 <div class="exec">
   <div class="etag">Resumo Executivo</div>
-  <h2>Visão Geral · 29/04/2026</h2>
+  <h2>Visão Geral · 30/04/2026</h2>
 
-      <p class="sec-label sec-day">● Resultados da Semana · 27 a 29/04</p>
-  <p>A semana final de abril entregou 4.921 NCs (−5,2% vs meta de NCs) com padrão consistente: <span class="hl-g">Franquias acima da meta pelo terceiro dia consecutivo</span>, encerrando a semana com +14,1% em NCs e TPV praticamente na meta (+0,6% vs meta de TPV). Polos e Especialistas seguiram abaixo da meta a semana toda — sem reversão nos últimos dias. TPV M1 da semana em −15,6% vs meta, reflexo do volume transacional dos clientes credenciados em março abaixo do esperado.</p>
-  <p>No funil, atividade em campo saudável (Prod. Tarefa +20,8% vs meta na semana), mas <span class="hl-r">Conv 2 em 31,0% (−18,3% vs meta)</span> — o gargalo de fechamento não cedeu em nenhum momento de abril.</p>
+  <p class="sec-label sec-day">● Semana 27–30/04</p>
+  <p>A última semana de abril fecha com 6.333 NCs (−8,5% vs meta) e TPV de R$ 148,4mi (−17,3% vs meta), consolidando o padrão que marcou o mês inteiro: volume de atividade acima da meta e conversão abaixo. A Produtividade de Tarefa registrou +17,9% vs meta na semana — equipes em campo com alta intensidade — mas <span class="hl-r">Conv 2 em 32,3% (−14,7% vs meta)</span> voltou a ser o limitador do resultado final. <span class="hl-g">Franquias foi a única área a encerrar a semana acima da meta em NCs (+13,1%)</span>, enquanto Especialistas registrou o pior desempenho semanal do mês (−27,5% em NCs). O último dia útil, D30, foi mais fraco do que D29 em quase todos os indicadores — não houve aceleração de fechamento de mês.</p>
 
   <p class="sec-label sec-month" style="margin-top:22px;">● Fechamento de Abril</p>
-  <p>Abril encerra com NCs em −8,5% (29.820) e TPV em −4,1% (R$ 1.246,7mi) vs meta. <span class="hl-g">Franquias é o destaque positivo do mês</span>: +7,1% em NCs e +14,0% em TPV, com qualidade crescente. Polos fecha com TPV levemente positivo (+0,6%) mas NCs em −11,8%. <span class="hl-r">Especialistas registra o pior resultado mensal do ano</span>: −30,1% em NCs e −19,6% em TPV. O Prod TPV M1 consolidado encerrou em R$ 328,5k (−3,5% vs meta) — Franquias (+12,5%) e Polos (+1,2%) acima, Especialistas (−15,8%) como principal drag.</p>
+  <p>Abril fecha com 30.712 NCs (−10,5% vs meta) e TPV de R$ 1.232,5mi (−9,0% vs meta). <span class="hl-g">Franquias é a única área no verde em NCs (+6,5%) e TPV (+6,4%)</span>, sustentando o resultado consolidado. Polos fecha com TPV marginalmente abaixo da meta (−3,6%) após meses de boa performance, e NCs em −14,5% — a Conv 2 persistentemente abaixo da meta nunca foi compensada. <span class="hl-r">Especialistas encerra o pior mês do ano: −32,3% em NCs e −23,8% em TPV</span>, com Prod TPV M1 em R$ 698k vs meta de R$ 875k (−20,2%) — sinal de que a qualidade da ativação também sofreu. O Churn consolidado em 7,18% (meta: 5,07%, Δ +41,6%) é o dado mais crítico para maio: a erosão de base ativa vai impactar o TPV M1 do mês seguinte com força.</p>
 </div>
 
-<!-- KPI CARDS VISÍVEIS -->
-<div class="stitle no-line" style="margin-top:0;"><span class="sbadge sb-day">Semana 27–29/04</span> Resultados Consolidados · Total</div>
+<!-- KPI CARDS SEMANA (27-30) -->
+<div class="stitle no-line" style="margin-top:0;">
+  <span class="sbadge sb-day">Semana 27–30/04</span> Resultados Consolidados · Total
+</div>
 <div class="kpi-grid-6">
   <div class="kpi-card bad">
     <div class="kpi-label">Credenciamentos</div>
-    <div class="kpi-value">4.921</div>
-    <div class="kpi-delta neg">▼ −5,2% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow-label" style="font-size:9px;color:var(--dim);">27–29/abr</span></div>
-    <div class="kpi-meta">Meta da semana: 5.189</div>
+    <div class="kpi-value">6.333</div>
+    <div class="kpi-delta neg">▼ −8,5% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-dn">↓</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta semana: 6.920</div>
   </div>
   <div class="kpi-card bad">
     <div class="kpi-label">TPV M1</div>
-    <div class="kpi-value">R$ 106,2mi</div>
-    <div class="kpi-delta neg">▼ −15,6% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow-label" style="font-size:9px;color:var(--dim);">27–29/abr</span></div>
-    <div class="kpi-meta">Meta da semana: R$ 125,8mi</div>
+    <div class="kpi-value">R$ 148,4mi</div>
+    <div class="kpi-delta neg">▼ −17,3% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-dn">↓</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta semana: R$ 179,5mi</div>
   </div>
   <div class="kpi-card bad">
     <div class="kpi-label">Produtividade</div>
-    <div class="kpi-value">0,42</div>
-    <div class="kpi-delta neg">▼ −3,6% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow-label" style="font-size:9px;color:var(--dim);">27–29/abr</span></div>
-    <div class="kpi-meta">Meta da semana: 0,44</div>
+    <div class="kpi-value">0,41</div>
+    <div class="kpi-delta neg">▼ −6,1% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-dn">↓</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta semana: 0,44</div>
   </div>
   <div class="kpi-card good">
     <div class="kpi-label">Prod. de Tarefa · Visitas/HCDU</div>
-    <div class="kpi-value">8,4</div>
-    <div class="kpi-delta pos">▲ +20,8% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow-label" style="font-size:9px;color:var(--dim);">27–29/abr</span></div>
-    <div class="kpi-meta">Meta da semana: 7,0</div>
+    <div class="kpi-value">8,2</div>
+    <div class="kpi-delta pos">▲ +17,9% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-dn">↓</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta semana: 7,0</div>
   </div>
   <div class="kpi-card bad">
     <div class="kpi-label">Conversão 1 · Proposta/Visita</div>
-    <div class="kpi-value">16,3%</div>
-    <div class="kpi-delta neg">▼ −2,3% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow-label" style="font-size:9px;color:var(--dim);">27–29/abr</span></div>
-    <div class="kpi-meta">Meta da semana: 16,7%</div>
+    <div class="kpi-value">15,5%</div>
+    <div class="kpi-delta neg">▼ −6,6% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-dn">↓</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta semana: 16,6%</div>
   </div>
   <div class="kpi-card bad">
     <div class="kpi-label">Conversão 2 · NC/Proposta</div>
-    <div class="kpi-value">31,0%</div>
-    <div class="kpi-delta neg">▼ −18,3% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow-label" style="font-size:9px;color:var(--dim);">27–29/abr</span></div>
-    <div class="kpi-meta">Meta da semana: 37,9%</div>
+    <div class="kpi-value">32,3%</div>
+    <div class="kpi-delta neg">▼ −14,7% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-dn">↓</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta semana: 37,9%</div>
   </div>
 </div>
 
-<!-- SESSÃO 1: DIA -->
+<!-- SESSÃO 1: SEMANA -->
 <div class="sess-btn" onclick="toggleSess('s1','sc1')">
-  <span class="sess-label">Resultados da Semana · 27–29/04</span>
-  <span class="sbadge sb-day">Semana 27–29/04</span>
+  <span class="sess-label">Resultados da Semana · 27–30/04</span>
   <span class="sess-chev" id="sc1">▼</span>
 </div>
 <div class="sess-body" id="s1">
 <div style="height:16px;"></div>
 
-<!-- T2 -->
-<div class="stitle">Resultados Consolidados · por Área <span class="sbadge sb-day">Semana 27–29/04</span></div>
+<!-- T1: NC · TPV · Prod por área -->
+<div class="stitle">Credenciamentos · TPV M1 · Produtividade por Área</div>
 <div class="tw">
 <table style="table-layout:fixed;width:100%;">
   <colgroup>
@@ -254,27 +232,45 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
     <th class="th-g">NC</th><th class="th-g">Meta</th><th class="th-g">Δ Meta</th><th class="th-g">Δ Méd</th>
     <th class="th-g">TPV M1</th><th class="th-g">Meta</th><th class="th-g">Δ Meta</th><th class="th-g">Δ Méd</th>
     <th class="th-g">Prod</th><th class="th-g">Meta</th><th class="th-g">Δ Meta</th><th class="th-g">Δ Méd</th>
-    <th class="th-g">vs D28</th>
+    <th class="th-g">vs D29</th>
   </tr></thead>
   <tbody>
-    <tr><td>Polos</td><td class="v">2.780</td><td class="m">3.111</td><td class="dp neg">−10,6%</td><td class="m">—</td><td class="v">R$ 52,0mi</td><td class="m">R$ 59,4mi</td><td class="dp neg">−12,5%</td><td class="m">—</td><td class="v">0,39</td><td class="m">0,44</td><td class="dp neg">−10,3%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span></td></tr>
+    <tr>
+      <td>Polos</td>
+      <td class="v">3.521</td><td class="m">4.148</td><td class="dp neg">−15,1%</td><td class="m">—</td>
+      <td class="v">R$ 73,1mi</td><td class="m">R$ 84,8mi</td><td class="dp neg">−13,8%</td><td class="m">—</td>
+      <td class="v">0,38</td><td class="m">0,44</td><td class="dp neg">−13,8%</td><td class="m">—</td>
+      <td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span></td>
+    </tr>
     <tr><td colspan="14" style="padding:0;border:none;">
       <button class="exp-btn" onclick="toggleExp(this)">Ver regionais <span class="exp-chev">▼</span></button>
       <div class="exp-body"><table style="table-layout:fixed;width:100%;border-collapse:collapse;font-size:12px;"><colgroup><col style="width:130px;"><col style="width:60px;"><col style="width:56px;"><col style="width:68px;"><col style="width:68px;"><col style="width:82px;"><col style="width:82px;"><col style="width:68px;"><col style="width:68px;"><col style="width:52px;"><col style="width:52px;"><col style="width:68px;"><col style="width:68px;"><col style="width:72px;"></colgroup><tbody>
-        <tr class="sub"><td>Centro Norte</td><td class="v">161</td><td class="m">207</td><td class="dp neg">−22,2%</td><td class="m">—</td><td class="v">R$ 3,15mi</td><td class="m">R$ 3,93mi</td><td class="dp neg">−19,9%</td><td class="m">—</td><td class="v">0,35</td><td class="m">0,45</td><td class="dp neg">−22,1%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span></td></tr>
-        <tr class="sub"><td>Nordeste</td><td class="v">225</td><td class="m">217</td><td class="dp pos">+3,5%</td><td class="m">—</td><td class="v">R$ 3,33mi</td><td class="m">R$ 4,07mi</td><td class="dp neg">−18,2%</td><td class="m">—</td><td class="v">0,51</td><td class="m">0,47</td><td class="dp pos">+8,5%</td><td class="m">—</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>SP</td><td class="v">227</td><td class="m">232</td><td class="dp neg">−2,0%</td><td class="m">—</td><td class="v">R$ 3,44mi</td><td class="m">R$ 4,58mi</td><td class="dp neg">−24,8%</td><td class="m">—</td><td class="v">0,38</td><td class="m">0,40</td><td class="dp neg">−4,3%</td><td class="m">—</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>Sudeste</td><td class="v">198</td><td class="m">190</td><td class="dp pos">+4,4%</td><td class="m">—</td><td class="v">R$ 3,17mi</td><td class="m">R$ 3,74mi</td><td class="dp neg">−15,5%</td><td class="m">—</td><td class="v">0,45</td><td class="m">0,45</td><td class="dp pos">+0,1%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-fl">→</span></td></tr>
-        <tr class="sub"><td>Sul</td><td class="v">144</td><td class="m">190</td><td class="dp neg">−24,1%</td><td class="m">—</td><td class="v">R$ 2,90mi</td><td class="m">R$ 3,87mi</td><td class="dp neg">−25,0%</td><td class="m">—</td><td class="v">0,31</td><td class="m">0,44</td><td class="dp neg">−28,7%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span></td></tr>
+        <tr class="sub"><td>Centro Norte</td><td class="v">618</td><td class="m">827</td><td class="dp neg">−25,3%</td><td class="m">—</td><td class="v">R$ 14,5mi</td><td class="m">R$ 18,4mi</td><td class="dp neg">−20,9%</td><td class="m">—</td><td class="v">0,35</td><td class="m">0,46</td><td class="dp neg">−22,3%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span></td></tr>
+        <tr class="sub"><td>Nordeste</td><td class="v">771</td><td class="m">870</td><td class="dp neg">−11,4%</td><td class="m">—</td><td class="v">R$ 15,8mi</td><td class="m">R$ 16,4mi</td><td class="dp neg">−3,9%</td><td class="m">—</td><td class="v">0,46</td><td class="m">0,47</td><td class="dp neg">−3,6%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span></td></tr>
+        <tr class="sub"><td>SP</td><td class="v">784</td><td class="m">926</td><td class="dp neg">−15,4%</td><td class="m">—</td><td class="v">R$ 16,1mi</td><td class="m">R$ 18,9mi</td><td class="dp neg">−15,0%</td><td class="m">—</td><td class="v">0,34</td><td class="m">0,40</td><td class="dp neg">−14,5%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span></td></tr>
+        <tr class="sub"><td>Sudeste</td><td class="v">717</td><td class="m">766</td><td class="dp neg">−6,4%</td><td class="m">—</td><td class="v">R$ 14,4mi</td><td class="m">R$ 15,5mi</td><td class="dp neg">−7,6%</td><td class="m">—</td><td class="v">0,42</td><td class="m">0,45</td><td class="dp neg">−7,4%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span></td></tr>
+        <tr class="sub"><td>Sul</td><td class="v">631</td><td class="m">759</td><td class="dp neg">−16,8%</td><td class="m">—</td><td class="v">R$ 12,4mi</td><td class="m">R$ 15,6mi</td><td class="dp neg">−20,7%</td><td class="m">—</td><td class="v">0,35</td><td class="m">0,44</td><td class="dp neg">−20,5%</td><td class="m">—</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
       </tbody></table></div>
     </td></tr>
-    <tr><td>Especialistas</td><td class="v">453</td><td class="m">599</td><td class="dp neg">−24,4%</td><td class="m">—</td><td class="v">R$ 31,8mi</td><td class="m">R$ 44,1mi</td><td class="dp neg">−28,0%</td><td class="m">—</td><td class="v">0,28</td><td class="m">0,34</td><td class="dp neg">−18,9%</td><td class="m">—</td><td><span class="arr a-up">↑</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
-    <tr><td>Franquias</td><td class="v">1.688</td><td class="m">1.480</td><td class="dp pos">+14,1%</td><td class="m">—</td><td class="v">R$ 22,3mi</td><td class="m">R$ 22,2mi</td><td class="dp pos">+0,6%</td><td class="m">—</td><td class="v">0,57</td><td class="m">0,49</td><td class="dp pos">+15,9%</td><td class="m">—</td><td><span class="arr a-fl">→</span> <span class="arr a-dn">↓</span> <span class="arr a-fl">→</span></td></tr>
+    <tr>
+      <td>Especialistas</td>
+      <td class="v">579</td><td class="m">799</td><td class="dp neg">−27,5%</td><td class="m">—</td>
+      <td class="v">R$ 44,4mi</td><td class="m">R$ 63,0mi</td><td class="dp neg">−29,5%</td><td class="m">—</td>
+      <td class="v">0,27</td><td class="m">0,34</td><td class="dp neg">−21,9%</td><td class="m">—</td>
+      <td><span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span></td>
+    </tr>
+    <tr>
+      <td>Franquias</td>
+      <td class="v">2.233</td><td class="m">1.974</td><td class="dp pos">+13,1%</td><td class="m">—</td>
+      <td class="v">R$ 30,9mi</td><td class="m">R$ 31,7mi</td><td class="dp neg">−2,5%</td><td class="m">—</td>
+      <td class="v">0,57</td><td class="m">0,49</td><td class="dp pos">+15,9%</td><td class="m">—</td>
+      <td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span></td>
+    </tr>
   </tbody>
 </table></div>
 
-<!-- T4 -->
-<div class="stitle">Funil de Vendas · por Área <span class="sbadge sb-day">Semana 27–29/04</span></div>
+<!-- T2: Funil Semana -->
+<div class="stitle">Funil de Vendas · por Área</div>
 <div class="tw">
 <table style="table-layout:fixed;width:100%;">
   <colgroup>
@@ -289,26 +285,44 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
     <th class="th-g">Prod Tarefa</th><th class="th-g">Meta</th><th class="th-g">Δ Meta</th><th class="th-g">Δ Méd</th>
     <th class="th-g">Conv 1</th><th class="th-g">Meta</th><th class="th-g">Δ Meta</th><th class="th-g">Δ Méd</th>
     <th class="th-g">Conv 2</th><th class="th-g">Meta</th><th class="th-g">Δ Meta</th><th class="th-g">Δ Méd</th>
-    <th class="th-g">vs D28</th>
+    <th class="th-g">vs D29</th>
   </tr></thead>
   <tbody>
-    <tr><td>Polos</td><td class="v">9,1</td><td class="m">8,0</td><td class="dp pos">+13,6%</td><td class="m">—</td><td class="v">14,5%</td><td class="m">13,9%</td><td class="dp pos">+4,6%</td><td class="m">—</td><td class="v">29,9%</td><td class="m">39,6%</td><td class="dp neg">−24,5%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+    <tr>
+      <td>Polos</td>
+      <td class="v">8,9</td><td class="m">8,0</td><td class="dp pos">+11,0%</td><td class="m">—</td>
+      <td class="v">13,8%</td><td class="m">13,9%</td><td class="dp neg">−0,6%</td><td class="m">—</td>
+      <td class="v">30,9%</td><td class="m">39,6%</td><td class="dp neg">−21,9%</td><td class="m">—</td>
+      <td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td>
+    </tr>
     <tr><td colspan="14" style="padding:0;border:none;">
       <button class="exp-btn" onclick="toggleExp(this)">Ver regionais <span class="exp-chev">▼</span></button>
       <div class="exp-body"><table style="table-layout:fixed;width:100%;border-collapse:collapse;font-size:12px;"><colgroup><col style="width:130px;"><col style="width:72px;"><col style="width:60px;"><col style="width:68px;"><col style="width:68px;"><col style="width:64px;"><col style="width:60px;"><col style="width:68px;"><col style="width:68px;"><col style="width:64px;"><col style="width:60px;"><col style="width:68px;"><col style="width:68px;"><col style="width:72px;"></colgroup><tbody>
-        <tr class="sub"><td>Centro Norte</td><td class="v">9,4</td><td class="m">11,1</td><td class="dp neg">−15,3%</td><td class="m">—</td><td class="v">11,5%</td><td class="m">11,4%</td><td class="dp pos">+0,5%</td><td class="m">—</td><td class="v">32,7%</td><td class="m">35,7%</td><td class="dp neg">−8,6%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>Nordeste</td><td class="v">7,6</td><td class="m">6,2</td><td class="dp pos">+23,4%</td><td class="m">—</td><td class="v">17,1%</td><td class="m">17,3%</td><td class="dp neg">−1,7%</td><td class="m">—</td><td class="v">39,6%</td><td class="m">44,3%</td><td class="dp neg">−10,5%</td><td class="m">—</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>SP</td><td class="v">8,1</td><td class="m">6,8</td><td class="dp pos">+18,2%</td><td class="m">—</td><td class="v">15,9%</td><td class="m">15,7%</td><td class="dp pos">+1,4%</td><td class="m">—</td><td class="v">29,6%</td><td class="m">37,0%</td><td class="dp neg">−20,2%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>Sudeste</td><td class="v">9,2</td><td class="m">7,9</td><td class="dp pos">+15,6%</td><td class="m">—</td><td class="v">13,5%</td><td class="m">12,7%</td><td class="dp pos">+6,1%</td><td class="m">—</td><td class="v">36,5%</td><td class="m">45,2%</td><td class="dp neg">−19,1%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>Sul</td><td class="v">9,6</td><td class="m">8,5</td><td class="dp pos">+13,3%</td><td class="m">—</td><td class="v">13,6%</td><td class="m">13,6%</td><td class="dp neg">−0,1%</td><td class="m">—</td><td class="v">23,8%</td><td class="m">37,8%</td><td class="dp neg">−37,0%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span></td></tr>
+        <tr class="sub"><td>Centro Norte</td><td class="v">9,9</td><td class="m">11,2</td><td class="dp neg">−11,5%</td><td class="m">—</td><td class="v">11,4%</td><td class="m">11,4%</td><td class="dp neg">−0,5%</td><td class="m">—</td><td class="v">31,5%</td><td class="m">35,7%</td><td class="dp neg">−11,7%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+        <tr class="sub"><td>Nordeste</td><td class="v">7,8</td><td class="m">6,2</td><td class="dp pos">+26,4%</td><td class="m">—</td><td class="v">16,0%</td><td class="m">17,4%</td><td class="dp neg">−7,8%</td><td class="m">—</td><td class="v">36,6%</td><td class="m">44,3%</td><td class="dp neg">−17,3%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+        <tr class="sub"><td>SP</td><td class="v">8,2</td><td class="m">6,8</td><td class="dp pos">+20,5%</td><td class="m">—</td><td class="v">15,3%</td><td class="m">15,7%</td><td class="dp neg">−2,5%</td><td class="m">—</td><td class="v">26,9%</td><td class="m">37,0%</td><td class="dp neg">−27,3%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+        <tr class="sub"><td>Sudeste</td><td class="v">9,3</td><td class="m">7,9</td><td class="dp pos">+18,0%</td><td class="m">—</td><td class="v">12,9%</td><td class="m">12,7%</td><td class="dp pos">+1,2%</td><td class="m">—</td><td class="v">34,9%</td><td class="m">45,0%</td><td class="dp neg">−22,5%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+        <tr class="sub"><td>Sul</td><td class="v">9,6</td><td class="m">8,5</td><td class="dp pos">+12,2%</td><td class="m">—</td><td class="v">13,6%</td><td class="m">13,6%</td><td class="dp pos">+0,2%</td><td class="m">—</td><td class="v">26,7%</td><td class="m">37,8%</td><td class="dp neg">−29,3%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
       </tbody></table></div>
     </td></tr>
-    <tr><td>Especialistas</td><td class="v">7,4</td><td class="m">6,4</td><td class="dp pos">+15,6%</td><td class="m">—</td><td class="v">18,0%</td><td class="m">19,1%</td><td class="dp neg">−5,7%</td><td class="m">—</td><td class="v">20,8%</td><td class="m">28,0%</td><td class="dp neg">−25,6%</td><td class="m">—</td><td><span class="arr a-up">↑</span> <span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span></td></tr>
-    <tr><td>Franquias</td><td class="v">7,2</td><td class="m">4,8</td><td class="dp pos">+52,4%</td><td class="m">—</td><td class="v">20,6%</td><td class="m">25,9%</td><td class="dp neg">−20,5%</td><td class="m">—</td><td class="v">38,4%</td><td class="m">40,1%</td><td class="dp neg">−4,4%</td><td class="m">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+    <tr>
+      <td>Especialistas</td>
+      <td class="v">7,4</td><td class="m">6,4</td><td class="dp pos">+16,5%</td><td class="m">—</td>
+      <td class="v">16,0%</td><td class="m">19,0%</td><td class="dp neg">−16,1%</td><td class="m">—</td>
+      <td class="v">22,4%</td><td class="m">28,0%</td><td class="dp neg">−20,1%</td><td class="m">—</td>
+      <td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td>
+    </tr>
+    <tr>
+      <td>Franquias</td>
+      <td class="v">6,9</td><td class="m">4,8</td><td class="dp pos">+45,8%</td><td class="m">—</td>
+      <td class="v">20,7%</td><td class="m">25,9%</td><td class="dp neg">−19,9%</td><td class="m">—</td>
+      <td class="v">39,8%</td><td class="m">40,1%</td><td class="dp neg">−0,8%</td><td class="m">—</td>
+      <td><span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td>
+    </tr>
   </tbody>
 </table></div>
 
-<!-- GRÁFICO WATERFALL DIA -->
+<!-- GRÁFICO WATERFALL SEMANA -->
 <div style="margin-top:16px;">
   <div style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;margin-bottom:6px;">
     <div class="wf-btn wf-btn-day active" onclick="selectAreaDay('consolidado')" data-area="consolidado">Consolidado</div>
@@ -316,7 +330,7 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
     <div class="wf-btn wf-btn-day" onclick="selectAreaDay('especialistas')" data-area="especialistas">Especialistas</div>
     <div class="wf-btn wf-btn-day" onclick="selectAreaDay('franquias')" data-area="franquias">Franquias</div>
   </div>
-  <div class="reg-group-day" id="reg-group-day" style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;overflow:hidden;max-height:0;transition:max-height .25s ease;margin-bottom:4px;">
+  <div id="reg-group-day" style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;overflow:hidden;max-height:0;transition:max-height .25s ease;margin-bottom:4px;">
     <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('centro_norte')" data-reg="centro_norte">Centro Norte</div>
     <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('nordeste')" data-reg="nordeste">Nordeste</div>
     <div class="wf-btn wf-btn-day reg" onclick="selectRegDay('sp')" data-reg="sp">SP</div>
@@ -328,79 +342,82 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 
 </div><!-- fim s1 -->
 
-<!-- KPI CARDS MÊS VISÍVEIS -->
+<!-- KPI CARDS ACUMULADO ABRIL -->
 <div style="border-top:1px solid var(--border);margin:40px 0 28px;"></div>
-<div class="stitle no-line" style="margin-top:0;"><span class="sbadge sb-month">Acumulado</span> Resultados Consolidados · Total <span style="font-family:'DM Mono',monospace;font-size:8px;color:var(--dim);font-weight:400;white-space:nowrap;">(Polos · Fran · Espec)</span></div>
+<div class="stitle no-line" style="margin-top:0;">
+  <span class="sbadge sb-month">Fechamento · Abril 2026</span>
+  Resultados Consolidados · Total
+  <span style="font-family:'DM Mono',monospace;font-size:8px;color:var(--dim);font-weight:400;white-space:nowrap;">(Polos · Fran · Espec)</span>
+</div>
 <div class="kpi-grid-6" style="grid-template-columns:repeat(4,1fr);">
   <div class="kpi-card bad">
     <div class="kpi-label">Credenciamentos</div>
-    <div class="kpi-value">29.820</div>
-    <div class="kpi-delta neg">▼ −8,5% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow a-up">↑</span><span class="kpi-arrow-label">vs D28</span></div>
-    <div class="kpi-meta">Meta acumulada: 32.599</div>
+    <div class="kpi-value">30.712</div>
+    <div class="kpi-delta neg">▼ −10,5% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-up">↑</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta abril: 34.330</div>
   </div>
   <div class="kpi-card bad">
     <div class="kpi-label">TPV M1</div>
-    <div class="kpi-value">R$ 1.246,7mi</div>
-    <div class="kpi-delta neg">▼ −4,1% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow a-up">↑</span><span class="kpi-arrow-label">vs D28</span></div>
-    <div class="kpi-meta">Meta acumulada: R$ 1.300,1mi</div>
+    <div class="kpi-value">R$ 1.232,5mi</div>
+    <div class="kpi-delta neg">▼ −9,0% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-up">↑</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta abril: R$ 1.353,8mi</div>
   </div>
   <div class="kpi-card bad">
     <div class="kpi-label">Produtividade</div>
-    <div class="kpi-value">0,41</div>
-    <div class="kpi-delta neg">▼ −6,5% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow a-up">↑</span><span class="kpi-arrow-label">vs D28</span></div>
-    <div class="kpi-meta">Meta acumulada: 0,44</div>
+    <div class="kpi-value">0,40</div>
+    <div class="kpi-delta neg">▼ −8,3% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-dn">↓</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta abril: 0,44</div>
   </div>
   <div class="kpi-card bad">
     <div class="kpi-label">Prod TPV M1</div>
-    <div class="kpi-value">R$ 328,5k</div>
-    <div class="kpi-delta neg">▼ −3,5% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow a-up">↑</span><span class="kpi-arrow-label">vs D28</span></div>
-    <div class="kpi-meta">Meta acumulada: R$ 340,4k</div>
+    <div class="kpi-value">R$ 324,7k</div>
+    <div class="kpi-delta neg">▼ −8,4% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-up">↑</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta abril: R$ 354,5k</div>
   </div>
   <div class="kpi-card good">
     <div class="kpi-label">Prod. de Tarefa · Visitas/HCDU</div>
     <div class="kpi-value">8,1</div>
-    <div class="kpi-delta pos">▲ +17,0% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow a-fl">→</span><span class="kpi-arrow-label">vs D28</span></div>
-    <div class="kpi-meta">Meta acumulada: 7,0</div>
+    <div class="kpi-delta pos">▲ +16,6% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-fl">→</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta abril: 7,0</div>
   </div>
   <div class="kpi-card bad">
     <div class="kpi-label">Conversão 1 · Proposta/Visita</div>
-    <div class="kpi-value">16,0%</div>
-    <div class="kpi-delta neg">▼ −4,1% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow a-fl">→</span><span class="kpi-arrow-label">vs D28</span></div>
-    <div class="kpi-meta">Meta acumulada: 16,7%</div>
+    <div class="kpi-value">15,8%</div>
+    <div class="kpi-delta neg">▼ −5,0% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-fl">→</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta abril: 16,7%</div>
   </div>
   <div class="kpi-card bad">
     <div class="kpi-label">Conversão 2 · NC/Proposta</div>
-    <div class="kpi-value">31,6%</div>
-    <div class="kpi-delta neg">▼ −16,6% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow a-up">↑</span><span class="kpi-arrow-label">vs D28</span></div>
-    <div class="kpi-meta">Meta acumulada: 37,9%</div>
+    <div class="kpi-value">31,3%</div>
+    <div class="kpi-delta neg">▼ −17,3% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-fl">→</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta abril: 37,9%</div>
   </div>
   <div class="kpi-card bad">
     <div class="kpi-label">Churn</div>
-    <div class="kpi-value">7,04%</div>
-    <div class="kpi-delta neg">▼ −42,5% vs meta</div>
-    <div class="kpi-arrow-row"><span class="kpi-arrow a-fl">→</span><span class="kpi-arrow-label">vs D28</span></div>
-    <div class="kpi-meta">Meta acumulada: 4,94%</div>
+    <div class="kpi-value">7,18%</div>
+    <div class="kpi-delta neg">▼ −41,6% vs meta</div>
+    <div class="kpi-arrow-row"><span class="kpi-arrow a-fl">→</span><span class="kpi-arrow-label">vs D29</span></div>
+    <div class="kpi-meta">Meta abril: 5,07%</div>
   </div>
 </div>
 
-<!-- SESSÃO 2: MÊS -->
+<!-- SESSÃO 2: ACUMULADO ABRIL -->
 <div class="sess-btn" onclick="toggleSess('s2','sc2')">
-  <span class="sess-label">Resultados do Mês · Abril/2026</span>
-  <span class="sbadge sb-month">Acumulado</span>
+  <span class="sess-label">Fechamento do Mês · Abril/2026</span>
   <span class="sess-chev" id="sc2">▼</span>
 </div>
 <div class="sess-body" id="s2">
 <div style="height:16px;"></div>
 
-<!-- T5: NC · TPV M1 · Prod · Prod TPV M1 -->
-<div class="stitle">Credenciamentos · TPV M1 · Produtividade · Prod TPV M1 <span class="sbadge sb-month">Acumulado</span></div>
+<!-- T3: NC · TPV · Prod · ProdTPV M1 -->
+<div class="stitle">Credenciamentos · TPV M1 · Produtividade · Prod TPV M1</div>
 <div class="tw"><table style="table-layout:fixed;width:100%;">
   <colgroup>
     <col style="width:120px;">
@@ -416,38 +433,66 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
     <th class="th-b">TPV M1</th><th class="th-b">Meta</th><th class="th-b">Δ</th>
     <th class="th-b">Prod</th><th class="th-b">Meta</th><th class="th-b">Δ</th>
     <th class="th-b">Prod TPV M1</th><th class="th-b">Meta</th><th class="th-b">Δ</th>
-    <th class="th-b">vs D28</th>
+    <th class="th-b">vs D29</th>
   </tr></thead>
   <tbody>
-    <tr><td>Polos</td><td class="v">17.232</td><td class="m">19.539</td><td class="dp neg">−11,8%</td><td class="v">R$ 618,3mi</td><td class="m">R$ 614,4mi</td><td class="dp pos">+0,6%</td><td class="v">0,39</td><td class="m">0,44</td><td class="dp neg">−10,9%</td><td class="v">R$ 269,9k</td><td class="m">R$ 266,8k</td><td class="dp pos">+1,2%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
+    <tr>
+      <td>Polos</td>
+      <td class="v">17.603</td><td class="m">20.577</td><td class="dp neg">−14,5%</td>
+      <td class="v">R$ 616,5mi</td><td class="m">R$ 639,8mi</td><td class="dp neg">−3,6%</td>
+      <td class="v">0,38</td><td class="m">0,44</td><td class="dp neg">−13,4%</td>
+      <td class="v">R$ 269k</td><td class="m">R$ 278k</td><td class="dp neg">−3,1%</td>
+      <td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td>
+    </tr>
     <tr><td colspan="14" style="padding:0;border:none;">
       <button class="exp-btn" onclick="toggleExp(this)">Ver regionais <span class="exp-chev">▼</span></button>
       <div class="exp-body"><table style="table-layout:fixed;width:100%;border-collapse:collapse;font-size:12px;">
-        <colgroup>
-          <col style="width:120px;">
-          <col style="width:60px;"><col style="width:58px;"><col style="width:64px;">
-          <col style="width:78px;"><col style="width:78px;"><col style="width:64px;">
-          <col style="width:48px;"><col style="width:48px;"><col style="width:64px;">
-          <col style="width:76px;"><col style="width:74px;"><col style="width:64px;">
-          <col style="width:70px;">
-        </colgroup>
+        <colgroup><col style="width:120px;"><col style="width:60px;"><col style="width:58px;"><col style="width:64px;"><col style="width:78px;"><col style="width:78px;"><col style="width:64px;"><col style="width:48px;"><col style="width:48px;"><col style="width:64px;"><col style="width:76px;"><col style="width:74px;"><col style="width:64px;"><col style="width:70px;"></colgroup>
         <tbody>
-        <tr class="sub"><td>Centro Norte</td><td class="v">3.082</td><td class="m">3.922</td><td class="dp neg">−21,4%</td><td class="v">R$ 120,5mi</td><td class="m">R$ 132,9mi</td><td class="dp neg">−9,3%</td><td class="v">0,36</td><td class="m">0,45</td><td class="dp neg">−20,3%</td><td class="m" colspan="3">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span></td></tr>
-        <tr class="sub"><td>Nordeste</td><td class="v">3.624</td><td class="m">4.120</td><td class="dp neg">−12,0%</td><td class="v">R$ 130,7mi</td><td class="m">R$ 118,7mi</td><td class="dp pos">+10,1%</td><td class="v">0,45</td><td class="m">0,47</td><td class="dp neg">−5,2%</td><td class="m" colspan="3">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span></td></tr>
-        <tr class="sub"><td>SP</td><td class="v">4.178</td><td class="m">4.378</td><td class="dp neg">−4,6%</td><td class="v">R$ 135,4mi</td><td class="m">R$ 137,2mi</td><td class="dp neg">−1,3%</td><td class="v">0,38</td><td class="m">0,40</td><td class="dp neg">−4,2%</td><td class="m" colspan="3">—</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>Sudeste</td><td class="v">3.222</td><td class="m">3.522</td><td class="dp neg">−8,5%</td><td class="v">R$ 128,2mi</td><td class="m">R$ 112,6mi</td><td class="dp pos">+13,9%</td><td class="v">0,42</td><td class="m">0,45</td><td class="dp neg">−7,9%</td><td class="m" colspan="3">—</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>Sul</td><td class="v">3.126</td><td class="m">3.597</td><td class="dp neg">−13,1%</td><td class="v">R$ 103,6mi</td><td class="m">R$ 113,1mi</td><td class="dp neg">−8,4%</td><td class="v">0,36</td><td class="m">0,44</td><td class="dp neg">−17,2%</td><td class="m" colspan="3">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span></td></tr>
-      </tbody></table></div>
+          <tr class="sub"><td>Centro Norte</td><td class="v">3.137</td><td class="m">4.129</td><td class="dp neg">−24,0%</td><td class="v">R$ 119,1mi</td><td class="m">R$ 138,4mi</td><td class="dp neg">−14,0%</td><td class="v">0,35</td><td class="m">0,46</td><td class="dp neg">−22,7%</td><td class="v">R$ 264k</td><td class="m">R$ 314k</td><td class="dp neg">−15,9%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+          <tr class="sub"><td>Nordeste</td><td class="v">3.705</td><td class="m">4.337</td><td class="dp neg">−14,6%</td><td class="v">R$ 129,3mi</td><td class="m">R$ 123,6mi</td><td class="dp pos">+4,6%</td><td class="v">0,44</td><td class="m">0,47</td><td class="dp neg">−7,5%</td><td class="v">R$ 304k</td><td class="m">R$ 276k</td><td class="dp pos">+10,1%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+          <tr class="sub"><td>SP</td><td class="v">4.232</td><td class="m">4.610</td><td class="dp neg">−8,2%</td><td class="v">R$ 136,4mi</td><td class="m">R$ 142,9mi</td><td class="dp neg">−4,5%</td><td class="v">0,37</td><td class="m">0,40</td><td class="dp neg">−7,6%</td><td class="v">R$ 245k</td><td class="m">R$ 248k</td><td class="dp neg">−1,4%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+          <tr class="sub"><td>Sudeste</td><td class="v">3.314</td><td class="m">3.714</td><td class="dp neg">−10,8%</td><td class="v">R$ 127,2mi</td><td class="m">R$ 117,2mi</td><td class="dp pos">+8,5%</td><td class="v">0,41</td><td class="m">0,45</td><td class="dp neg">−10,1%</td><td class="v">R$ 310k</td><td class="m">R$ 284k</td><td class="dp pos">+9,3%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+          <tr class="sub"><td>Sul</td><td class="v">3.215</td><td class="m">3.787</td><td class="dp neg">−15,1%</td><td class="v">R$ 104,6mi</td><td class="m">R$ 117,8mi</td><td class="dp neg">−11,2%</td><td class="v">0,36</td><td class="m">0,44</td><td class="dp neg">−19,0%</td><td class="v">R$ 233k</td><td class="m">R$ 276k</td><td class="dp neg">−15,4%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+        </tbody></table></div>
     </td></tr>
-    <tr><td>Especialistas</td><td class="v">2.628</td><td class="m">3.759</td><td class="dp neg">−30,1%</td><td class="v">R$ 366,9mi</td><td class="m">R$ 456,3mi</td><td class="dp neg">−19,6%</td><td class="v">0,26</td><td class="m">0,34</td><td class="dp neg">−23,5%</td><td class="v">R$ 707,7k</td><td class="m">R$ 840,2k</td><td class="dp neg">−15,8%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
-    <tr><td>Franquias</td><td class="v">9.960</td><td class="m">9.300</td><td class="dp pos">+7,1%</td><td class="v">R$ 261,4mi</td><td class="m">R$ 229,4mi</td><td class="dp pos">+14,0%</td><td class="v">0,54</td><td class="m">0,49</td><td class="dp pos">+8,4%</td><td class="v">R$ 265,2k</td><td class="m">R$ 235,7k</td><td class="dp pos">+12,5%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
-    <tr><td>Digital Hunter</td><td class="v">235</td><td class="m">327</td><td class="dp neg">−28,1%</td><td class="v">R$ 28,2mi</td><td class="m">R$ 21,6mi</td><td class="dp pos">+30,7%</td><td class="v">0,31</td><td></td><td></td><td colspan="3"></td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
-    <tr><td>Renda Extra</td><td class="v">55.353</td><td class="m">63.008</td><td class="dp neg">−12,1%</td><td class="v">R$ 193,7mi</td><td class="m">R$ 224,4mi</td><td class="dp neg">−13,6%</td><td colspan="3"></td><td colspan="3"></td><td><span class="arr a-fl">→</span> <span class="arr a-dn">↓</span></td></tr>
+    <tr>
+      <td>Especialistas</td>
+      <td class="v">2.680</td><td class="m">3.959</td><td class="dp neg">−32,3%</td>
+      <td class="v">R$ 361,9mi</td><td class="m">R$ 475,2mi</td><td class="dp neg">−23,8%</td>
+      <td class="v">0,25</td><td class="m">0,34</td><td class="dp neg">−25,9%</td>
+      <td class="v">R$ 698k</td><td class="m">R$ 875k</td><td class="dp neg">−20,2%</td>
+      <td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td>
+    </tr>
+    <tr>
+      <td>Franquias</td>
+      <td class="v">10.429</td><td class="m">9.794</td><td class="dp pos">+6,5%</td>
+      <td class="v">R$ 254,0mi</td><td class="m">R$ 238,9mi</td><td class="dp pos">+6,4%</td>
+      <td class="v">0,53</td><td class="m">0,49</td><td class="dp pos">+8,2%</td>
+      <td class="v">R$ 258k</td><td class="m">R$ 245k</td><td class="dp pos">+5,0%</td>
+      <td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td>
+    </tr>
+    <tr>
+      <td>Digital Hunter</td>
+      <td class="v">281</td><td class="m">385</td><td class="dp neg">−27,0%</td>
+      <td class="v">R$ 32,0mi</td><td class="m">R$ 24,6mi</td><td class="dp pos">+29,9%</td>
+      <td class="v">0,31</td><td></td><td></td>
+      <td colspan="3"></td>
+      <td><span class="arr a-fl">→</span> <span class="arr a-up">↑</span> <span class="arr a-fl">→</span></td>
+    </tr>
+    <tr>
+      <td>Renda Extra</td>
+      <td class="v">71.243</td><td class="m">72.830</td><td class="dp neg">−2,2%</td>
+      <td class="v">R$ 218,3mi</td><td class="m">R$ 224,4mi</td><td class="dp neg">−2,7%</td>
+      <td colspan="3"></td>
+      <td colspan="3"></td>
+      <td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td>
+    </tr>
   </tbody>
 </table></div>
 
-<!-- T6: Prod Tarefa · Conv 1 · Conv 2 · Churn -->
-<div class="stitle">Prod. de Tarefa · Conversão 1 · Conversão 2 · Churn <span class="sbadge sb-month">Acumulado</span></div>
+<!-- T4: Funil Acumulado -->
+<div class="stitle">Prod. de Tarefa · Conversão 1 · Conversão 2 · Churn</div>
 <div class="tw"><table style="table-layout:fixed;width:100%;">
   <colgroup>
     <col style="width:120px;">
@@ -463,42 +508,54 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
     <th class="th-b">Conv 1</th><th class="th-b">Meta</th><th class="th-b">Δ</th>
     <th class="th-b">Conv 2</th><th class="th-b">Meta</th><th class="th-b">Δ</th>
     <th class="th-b">Churn</th><th class="th-b">Meta</th><th class="th-b">Δ</th>
-    <th class="th-b">vs D28</th>
+    <th class="th-b">vs D29</th>
   </tr></thead>
   <tbody>
-    <tr><td>Polos</td><td class="v">8,9</td><td class="m">8,0</td><td class="dp pos">+11,3%</td><td class="v">14,2%</td><td class="m">13,9%</td><td class="dp pos">+2,3%</td><td class="v">30,9%</td><td class="m">38,5%</td><td class="dp neg">−21,8%</td><td class="v">7,92%</td><td class="m">5,51%</td><td class="dp neg">−43,7%</td><td><span class="arr a-fl">→</span> <span class="arr a-fl">→</span> <span class="arr a-up">↑</span> <span class="arr a-fl">→</span></td></tr>
+    <tr>
+      <td>Polos</td>
+      <td class="v">8,9</td><td class="m">8,0</td><td class="dp pos">+10,8%</td>
+      <td class="v">14,0%</td><td class="m">13,9%</td><td class="dp pos">+1,3%</td>
+      <td class="v">30,5%</td><td class="m">39,5%</td><td class="dp neg">−22,9%</td>
+      <td class="v">7,91%</td><td class="m">5,48%</td><td class="dp neg">−44,3%</td>
+      <td><span class="arr a-dn">↓</span> <span class="arr a-fl">→</span> <span class="arr a-up">↑</span> <span class="arr a-fl">→</span></td>
+    </tr>
     <tr><td colspan="14" style="padding:0;border:none;">
       <button class="exp-btn" onclick="toggleExp(this)">Ver regionais <span class="exp-chev">▼</span></button>
       <div class="exp-body"><table style="table-layout:fixed;width:100%;border-collapse:collapse;font-size:12px;">
-        <colgroup>
-          <col style="width:120px;">
-          <col style="width:66px;"><col style="width:56px;"><col style="width:64px;">
-          <col style="width:60px;"><col style="width:56px;"><col style="width:64px;">
-          <col style="width:60px;"><col style="width:56px;"><col style="width:64px;">
-          <col style="width:58px;"><col style="width:54px;"><col style="width:64px;">
-          <col style="width:66px;">
-        </colgroup>
+        <colgroup><col style="width:120px;"><col style="width:66px;"><col style="width:56px;"><col style="width:64px;"><col style="width:60px;"><col style="width:56px;"><col style="width:64px;"><col style="width:60px;"><col style="width:56px;"><col style="width:64px;"><col style="width:58px;"><col style="width:54px;"><col style="width:64px;"><col style="width:66px;"></colgroup>
         <tbody>
-        <tr class="sub"><td>Centro Norte</td><td class="v">9,8</td><td class="m">11,1</td><td class="dp neg">−12,4%</td><td class="v">12,2%</td><td class="m">11,4%</td><td class="dp pos">+6,8%</td><td class="v">30,4%</td><td class="m">35,7%</td><td class="dp neg">−14,8%</td><td class="m" colspan="3">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>Nordeste</td><td class="v">7,7</td><td class="m">6,2</td><td class="dp pos">+24,4%</td><td class="v">15,7%</td><td class="m">17,3%</td><td class="dp neg">−9,4%</td><td class="v">37,3%</td><td class="m">44,3%</td><td class="dp neg">−15,8%</td><td class="m" colspan="3">—</td><td><span class="arr a-fl">→</span> <span class="arr a-dn">↓</span> <span class="arr a-fl">→</span></td></tr>
-        <tr class="sub"><td>SP</td><td class="v">8,4</td><td class="m">6,8</td><td class="dp pos">+23,6%</td><td class="v">15,9%</td><td class="m">15,7%</td><td class="dp pos">+1,3%</td><td class="v">28,3%</td><td class="m">37,0%</td><td class="dp neg">−23,5%</td><td class="m" colspan="3">—</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>Sudeste</td><td class="v">9,5</td><td class="m">7,9</td><td class="dp pos">+21,0%</td><td class="v">13,0%</td><td class="m">12,7%</td><td class="dp pos">+2,2%</td><td class="v">33,5%</td><td class="m">45,2%</td><td class="dp neg">−25,6%</td><td class="m" colspan="3">—</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
-        <tr class="sub"><td>Sul</td><td class="v">9,4</td><td class="m">8,5</td><td class="dp pos">+10,7%</td><td class="v">14,2%</td><td class="m">13,6%</td><td class="dp pos">+4,3%</td><td class="v">27,1%</td><td class="m">37,8%</td><td class="dp neg">−28,2%</td><td class="m" colspan="3">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span></td></tr>
-      </tbody></table></div>
+          <tr class="sub"><td>Centro Norte</td><td class="v">9,7</td><td class="m">11,2</td><td class="dp neg">−12,6%</td><td class="v">12,1%</td><td class="m">11,4%</td><td class="dp pos">+6,0%</td><td class="v">29,8%</td><td class="m">35,7%</td><td class="dp neg">−16,6%</td><td class="m" colspan="3">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-fl">→</span> <span class="arr a-up">↑</span></td></tr>
+          <tr class="sub"><td>Nordeste</td><td class="v">7,7</td><td class="m">6,2</td><td class="dp pos">+24,3%</td><td class="v">15,5%</td><td class="m">17,3%</td><td class="dp neg">−10,6%</td><td class="v">36,8%</td><td class="m">44,3%</td><td class="dp neg">−16,8%</td><td class="m" colspan="3">—</td><td><span class="arr a-fl">→</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span></td></tr>
+          <tr class="sub"><td>SP</td><td class="v">8,4</td><td class="m">6,8</td><td class="dp pos">+22,9%</td><td class="v">15,7%</td><td class="m">15,7%</td><td class="dp pos">+0,2%</td><td class="v">27,8%</td><td class="m">37,0%</td><td class="dp neg">−25,0%</td><td class="m" colspan="3">—</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
+          <tr class="sub"><td>Sudeste</td><td class="v">9,5</td><td class="m">7,9</td><td class="dp pos">+20,2%</td><td class="v">12,9%</td><td class="m">12,8%</td><td class="dp pos">+1,3%</td><td class="v">33,2%</td><td class="m">45,0%</td><td class="dp neg">−26,2%</td><td class="m" colspan="3">—</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
+          <tr class="sub"><td>Sul</td><td class="v">9,4</td><td class="m">8,5</td><td class="dp pos">+10,1%</td><td class="v">14,1%</td><td class="m">13,6%</td><td class="dp pos">+3,4%</td><td class="v">26,9%</td><td class="m">37,8%</td><td class="dp neg">−28,9%</td><td class="m" colspan="3">—</td><td><span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span></td></tr>
+        </tbody></table></div>
     </td></tr>
-    <tr><td>Especialistas</td><td class="v">7,3</td><td class="m">6,4</td><td class="dp pos">+14,7%</td><td class="v">16,5%</td><td class="m">19,1%</td><td class="dp neg">−13,3%</td><td class="v">21,5%</td><td class="m">28,0%</td><td class="dp neg">−23,1%</td><td class="v">5,86%</td><td class="m">4,07%</td><td class="dp neg">−44,0%</td><td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-fl">→</span></td></tr>
-    <tr><td>Franquias</td><td class="v">6,7</td><td class="m">4,7</td><td class="dp pos">+40,9%</td><td class="v">21,2%</td><td class="m">25,9%</td><td class="dp neg">−17,9%</td><td class="v">37,6%</td><td class="m">40,1%</td><td class="dp neg">−6,2%</td><td class="v">6,60%</td><td class="m">4,64%</td><td class="dp neg">−42,0%</td><td><span class="arr a-dn">↓</span> <span class="arr a-dn">↓</span> <span class="arr a-up">↑</span> <span class="arr a-fl">→</span></td></tr>
+    <tr>
+      <td>Especialistas</td>
+      <td class="v">7,3</td><td class="m">6,4</td><td class="dp pos">+14,9%</td>
+      <td class="v">16,1%</td><td class="m">19,0%</td><td class="dp neg">−15,2%</td>
+      <td class="v">21,3%</td><td class="m">28,0%</td><td class="dp neg">−24,1%</td>
+      <td class="v">5,81%</td><td class="m">4,04%</td><td class="dp neg">−43,8%</td>
+      <td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-fl">→</span></td>
+    </tr>
+    <tr>
+      <td>Franquias</td>
+      <td class="v">6,7</td><td class="m">4,8</td><td class="dp pos">+40,2%</td>
+      <td class="v">21,2%</td><td class="m">25,9%</td><td class="dp neg">−17,9%</td>
+      <td class="v">37,7%</td><td class="m">40,1%</td><td class="dp neg">−6,0%</td>
+      <td class="v">6,33%</td><td class="m">4,61%</td><td class="dp neg">−37,3%</td>
+      <td><span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-up">↑</span> <span class="arr a-fl">→</span></td>
+    </tr>
   </tbody>
 </table></div>
 
-<!-- CONTROLE ÚNICO PARA OS DOIS GRÁFICOS DO MÊS -->
+<!-- GRÁFICOS ACUMULADO -->
 <div style="margin-top:16px;">
-  <!-- Toggle NC / TPV M1 -->
   <div style="display:flex;flex-direction:row;gap:4px;margin-bottom:10px;">
     <div id="toggle-nc" onclick="toggleAcumChart('nc')" style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;padding:5px 14px;border-radius:6px;cursor:pointer;background:#1A2420;color:#fff;border:1px solid #1A2420;transition:all .15s;">NC</div>
     <div id="toggle-tpv" onclick="toggleAcumChart('tpv')" style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;padding:5px 14px;border-radius:6px;cursor:pointer;background:#F4F6F5;color:#5A706A;border:1px solid #DDE2DF;transition:all .15s;">TPV M1</div>
   </div>
-  <!-- Botões de área -->
   <div style="display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;margin-bottom:6px;">
     <div class="wf-btn wf-btn-acum active" onclick="selectAreaAcum('consolidado')" data-area="consolidado">Consolidado</div>
     <div class="wf-btn wf-btn-acum" onclick="selectAreaAcum('polos')" data-area="polos">Polos</div>
@@ -512,11 +569,9 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
     <div class="wf-btn wf-btn-acum reg" data-reg="acum_se" onclick="selectRegAcum('acum_se','m_sudeste','tse')">Sudeste</div>
     <div class="wf-btn wf-btn-acum reg" data-reg="acum_sul" onclick="selectRegAcum('acum_sul','m_sul','tsul')">Sul</div>
   </div>
-  <!-- Gráfico NC -->
   <div id="chart-nc">
     <svg id="svg-funnel-month" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
   </div>
-  <!-- Gráfico TPV M1 (oculto por padrão) -->
   <div id="chart-tpv" style="display:none;">
     <svg id="svg-tpv-month" viewBox="0 0 820 360" style="display:block;height:250px;width:100%;"></svg>
   </div>
@@ -527,26 +582,26 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 <div style="border-top:1px solid var(--border);margin:40px 0 28px;"></div>
 
 <!-- INSIGHTS -->
-<div class="stitle" style="margin-top:8px;">Principais Insights</div>
+<div class="stitle" style="margin-top:8px;">Principais Insights · Fechamento de Abril</div>
 <div class="igrid">
-  <div class="icard good"><div class="ico">🏆</div><h4>Franquias define o padrão que as outras áreas não alcançaram</h4><p>+7,1% em NCs e +14,0% em TPV no acumulado de abril, com Prod TPV M1 +12,5% acima da meta e Conv 2 crescendo ao longo do mês. Franquias não apenas cresceu mais — cresceu melhor. É o único caso em que volume, produtividade comercial e taxa de fechamento se moveram na mesma direção em todo o mês.</p></div>
-  <div class="icard bad"><div class="ico">📉</div><h4>Especialistas fecha abril com impacto garantido em maio</h4><p>−30,1% em NCs, −19,6% em TPV e Prod TPV M1 de R$ 707,7k (−15,8% vs meta) no acumulado. A área gerou menos volume e com menor produtividade comercial — o impacto em maio está garantido antes mesmo de qualquer novo credenciamento. O problema foi consistente em todos os dias de abril.</p></div>
-  <div class="icard good"><div class="ico">💰</div><h4>Qualidade da carteira captada está preservada</h4><p>Prod TPV M1 consolidado em R$ 328,5k (−3,5% vs meta) ao fechar abril. Franquias (+12,5%) e Polos (+1,2%) acima da meta. Especialistas (−15,8%) é o principal drag. O desvio é menor que o de NCs (−8,5%), indicando que há pressão de produtividade além do volume — maio precisa de aceleração em ambas as frentes.</p></div>
-  <div class="icard bad"><div class="ico">⚠️</div><h4>Conv 2 foi o maior gargalo de abril — sem exceção</h4><p>31,6% no acumulado (−16,6% vs meta de Conv 2), e nenhum dia do mês ficou próximo da meta. A semana final repetiu o padrão: Especialistas com 20,8%, Polos com 29,9%. O problema é estrutural — com Prod. Tarefa consistentemente acima da meta, o time está em campo e gerando propostas, mas o fechamento não acontece.</p></div>
-  <div class="icard bad"><div class="ico">🔻</div><h4>Polos: volume menor, valor preservado — padrão incomum</h4><p>NCs em −11,8% no acumulado, mas TPV positivo (+0,6% vs meta de TPV). O Prod TPV M1 de Polos (R$ 269,9k, +1,2% vs meta) indica que a produtividade comercial está ligeiramente acima da meta. Esse padrão pode não se sustentar em maio — se o volume de NCs seguir baixo, o TPV também vai ceder.</p></div>
-  <div class="icard bad"><div class="ico">🚨</div><h4>Churn de abril reforça o desafio de maio</h4><p>Polos (−43,7%), Especialistas (−44,0%) e Franquias (−42,0%) vs meta de churn — todos acima do dobro do tolerável. Com base ativa erodindo e volume de captação abaixo da meta em duas das três áreas, maio começa com TPV base menor e menos margem para errar. O foco precisa ser retenção e aceleração de NCs simultaneamente.</p></div>
+  <div class="icard good"><div class="ico">🏆</div><h4>Franquias fecha abril como a única área no verde</h4><p>10.429 NCs (+6,5% vs meta) e R$ 254mi de TPV (+6,4% vs meta). Prod TPV M1 em R$ 258k (+5,0% vs meta) — volume, valor e qualidade de ativação alinhados. Na semana final, 2.233 NCs com Conv 2 em 39,8%, praticamente na meta (40,1%). O resultado de Franquias foi o único elemento estruturalmente positivo de abril e estabelece a base para maio.</p></div>
+  <div class="icard bad"><div class="ico">📉</div><h4>Especialistas: o pior mês do ano em todas as dimensões</h4><p>2.680 NCs (−32,3%), R$ 361,9mi de TPV (−23,8%) e Prod TPV M1 em R$ 698k (−20,2% vs meta de R$ 875k). Conv 1 em 16,1% (−15,2%) e Conv 2 em 21,3% (−24,1%) indicam falha no funil completo — não só no fechamento. Com HC Ativo −8,0% vs meta no mês, o problema é também de capacidade. Especialistas vai entrar em maio com base ativa reduzida e funil estruturalmente quebrado.</p></div>
+  <div class="icard bad"><div class="ico">🔻</div><h4>Conv 2 fecha abril como o gap persistente de todo o mês</h4><p>31,3% consolidado (−17,3% vs meta de 37,9%). Nenhuma área chegou perto da meta: Polos 30,5%, Esp 21,3%, Franquias 37,7%. A atividade de campo foi elevada o mês todo (ProdT +16,6% vs meta), propostas foram geradas, mas o fechamento não veio. O gargalo não é geração de demanda — é conversão de proposta em contrato. Isso precisa ser tratado estruturalmente antes de maio.</p></div>
+  <div class="icard bad"><div class="ico">🚨</div><h4>Churn encerra acima da meta nas 3 áreas — impacto direto em maio</h4><p>Polos 7,91% (meta 5,48%, Δ+44,3%), Especialistas 5,81% (meta 4,04%, Δ+43,8%), Franquias 6,33% (meta 4,61%, Δ+37,3%). O churn elevado de abril reduz a base ativa que gera TPV M1 em maio — o TPV de maio começa pressionado pela erosão de base de clientes ativos. Não há ação que reverta isso em maio; o foco deve ser em conter churn adicional.</p></div>
+  <div class="icard warn"><div class="ico">⚖️</div><h4>Polos: o TPV resistiu, mas os NCs revelam o custo real</h4><p>TPV de R$ 616,5mi (−3,6% vs meta) — resultado resiliente para um mês com −14,5% em NCs. O TPV Médio de R$ 34.761 por ativo (+7,8% vs meta) explica a resistência: mix de clientes de maior ticket compensou o volume. Mas NCs acumulados em −14,5% significam que a safra de novos clientes de abril vai gerar menos TPV M1 em maio do que o esperado, independentemente do mix.</p></div>
+  <div class="icard bad"><div class="ico">📅</div><h4>Encerramento de abril: o que ficou e o que leva para maio</h4><p>Abril fecha com consolidado em −10,5% NCs e −9,0% TPV. Não houve aceleração no D30 — a semana final replicou o padrão do mês. Para maio, os problemas estruturais são conhecidos: Conv 2 abaixo da meta em todas as áreas, churn elevado comprimindo a base ativa, e Especialistas com funil comprometido. A única alavanca positiva clara é Franquias, que encerra com momentum e pode ser o ponto de partida da virada.</p></div>
 </div>
 
-<!-- CONCLUSÃO -->
+<!-- CONCLUSÃO / FARÓIS -->
 <div class="concl">
-  <div class="ctag">🔦 Faróis de Abril — Fechamento do Mês</div>
-  <p><strong>Credenciamentos:</strong> Abril encerra com 29.820 NCs (−8,5% vs meta). Franquias foi a única área que superou a meta. Polos e Especialistas não reverteram os desvios acumulados. O padrão de Conv 2 abaixo da meta em todos os dias do mês indica que o problema de fechamento precisa ser tratado estruturalmente em maio.</p>
-  <p><strong>TPV M1:</strong> Fechamento em R$ 1.246,7mi (−4,1% vs meta). Franquias (+14,0%) e Polos (+0,6%) sustentaram o resultado. Especialistas (−19,6%) foi o principal drag. Para maio, o TPV começa pressionado pela base ativa abaixo do esperado em Especialistas e pelo churn acima da meta nas três áreas.</p>
-  <p><strong>Prod TPV M1:</strong> R$ 328,5k no consolidado (−3,5% vs meta). Franquias (R$ 265,2k, +12,5%) e Polos (R$ 269,9k, +1,2%) acima da meta. Especialistas (R$ 707,7k, −15,8%) arrasta o resultado. Para maio, além de acelerar NCs, a produtividade comercial precisa melhorar especialmente em Especialistas.</p>
-  <p><strong>Churn:</strong> Resultado definido e grave nas três áreas. A prioridade imediata para maio é estancar o churn e acelerar os NCs para compensar a base que saiu em abril.</p>
+  <div class="ctag">🔦 Faróis de Fechamento — Abril 2026</div>
+  <p><strong>Credenciamentos e Produtividade:</strong> Abril encerrado com 30.712 NCs (−10,5% vs meta) e produtividade em 0,40 (−8,3%). Franquias é a única área positiva (+6,5%). Polos e Especialistas fecham no vermelho — −14,5% e −32,3% respectivamente. Para maio, o desafio de volume está posto: com o mesmo nível de headcount e sem melhora em Conv 2, o deficit de NCs tende a se repetir.</p>
+  <p><strong>TPV M1:</strong> Fechamento em R$ 1.232,5mi (−9,0% vs meta). Polos fechou em −3,6% sustentado por TPV médio por ativo acima da meta. Franquias fechou em +6,4%. Especialistas em −23,8% é o principal detrator. O impacto do churn de abril na base ativa vai comprimir o TPV M1 de maio — a pressão no indicador de maio já está construída.</p>
+  <p><strong>Conversão 2:</strong> 31,3% no acumulado (−17,3% vs meta) — fechou onde começou, sem nenhuma melhora ao longo do mês. A atividade de campo foi elevada e as propostas foram geradas; o problema é estritamente de fechamento. Antes de maio começar, é preciso identificar onde as propostas estão travando: pricing, objeções de produto, tempo de decisão, ou processo comercial.</p>
+  <p><strong>Churn:</strong> Consolidado em 7,18% (meta 5,07%, Δ+41,6%) — resultado definitivo. A ação agora é de contenção: identificar os clientes em risco de churn no início de maio e acionar retenção proativa, antes que o padrão de abril se repita e amplifique a pressão sobre o TPV M1 do trimestre.</p>
 </div>
 
-<!-- GRÁFICO ÚNICO COM TOGGLE -->
+<!-- GRÁFICO FORECAST ANUAL -->
 <div style="margin-bottom:32px;">
   <div style="display:flex;flex-direction:row;gap:4px;margin-bottom:10px;">
     <div id="fcst-toggle-nc" onclick="fcstToggleChart('nc')" style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;padding:5px 14px;border-radius:6px;cursor:pointer;background:#1A2420;color:#fff;border:1px solid #1A2420;transition:all .15s;">NC</div>
@@ -577,400 +632,253 @@ td:first-child{text-align:left;font-family:'Syne',sans-serif;font-weight:600;fon
 </div>
 
 <script>
+// ===== FORECAST CHART =====
 const _fcstMESES=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-
 const _fcstDATA = {
   nc: {
     consolidado: {
-      budget:    [24162, 27556, 36095, 25746, 26824, 32176, 39148, 37628, 33206, 36560, 26292, 29154],
-      forecast:  [24187, 30263, 36186, 35312, 36223, 36871, 40660, 39771, 39586, 38652, 36173, 29579],
-      realizado: [33258, 30102, 36621, 24773, null, null, null, null, null, null, null, null],
+      budget:   [24162,27556,36095,25746,26824,32176,39148,37628,33206,36560,26292,29154],
+      forecast: [24187,30263,36186,35312,36223,36871,40660,39771,39586,38652,36173,29579],
+      realizado:[31995,28902,35207,30712,null,null,null,null,null,null,null,null],
     },
     polos: {
-      budget:    [15351, 18603, 21856, 20908, 21753, 21979, 23569, 22892, 22607, 21439, 20419, 18234],
-      forecast:  [14353, 18125, 21230, 21522, 22170, 22197, 23907, 23888, 23646, 22656, 20938, 17868],
-      realizado: [19621, 17185, 21667, 17232, null, null, null, null, null, null, null, null],
+      budget:   [15351,18603,21856,20908,21753,21979,23569,22892,22607,21439,20419,18234],
+      forecast: [14353,18125,21230,21522,22170,22197,23907,23888,23646,22656,20938,17868],
+      realizado:[19059,16639,20984,17603,null,null,null,null,null,null,null,null],
     },
     especialistas: {
-      budget:    [1846, 2770, 3635, 3874, 4107, 4220, 4667, 4614, 4770, 4999, 4909, 3545],
-      forecast:  [2009, 3055, 3854, 3697, 3960, 4440, 5328, 5286, 5343, 5399, 5142, 3990],
-      realizado: [2746, 2864, 3232, 2628, null, null, null, null, null, null, null, null],
+      budget:   [1846,2770,3635,3874,4107,4220,4667,4614,4770,4999,4909,3545],
+      forecast: [2009,3055,3854,3697,3960,4440,5328,5286,5343,5399,5142,3990],
+      realizado:[2619,2731,3096,2680,null,null,null,null,null,null,null,null],
     },
     franquias: {
-      budget:    [6965, 8676, 10604, 9640, 9640, 9775, 10912, 10122, 10122, 10122, 9640, 7375],
-      forecast:  [7825, 9083, 11102, 10093, 10093, 10234, 11425, 10597, 10597, 10597, 10093, 7721],
-      realizado: [10891, 10053, 11722, 9960, null, null, null, null, null, null, null, null],
+      budget:   [6965,8676,10604,9640,9640,9775,10912,10122,10122,10122,9640,7375],
+      forecast: [7825,9083,11102,10093,10093,10234,11425,10597,10597,10597,10093,7721],
+      realizado:[10317,9532,11127,10429,null,null,null,null,null,null,null,null],
     },
   },
   tpv: {
     consolidado: {
-      budget:    [908.6, 728.1, 1039.8, 1255.8, 1300.4, 1315.6, 1398.9, 1451.5, 1381.9, 1458.1, 1427.9, 1568.7],
-      forecast:  [961.9, 729.3, 1072.0, 1247.1, 1284.8, 1287.1, 1404.3, 1511.9, 1455.7, 1550.7, 1509.5, 1690.5],
-      realizado: [1016.6, 1118.2, 1147.0, 998.7, null, null, null, null, null, null, null, null],
+      budget:   [908.6,728.1,1039.8,1255.8,1300.4,1315.6,1398.9,1451.5,1381.9,1458.1,1427.9,1568.7],
+      forecast: [961.9,729.3,1072.0,1247.1,1284.8,1287.1,1404.3,1511.9,1455.7,1550.7,1509.5,1690.5],
+      realizado:[964.8,1067.0,1089.3,1232.5,null,null,null,null,null,null,null,null],
     },
     polos: {
-      budget:    [472.0, 399.3, 532.4, 615.6, 619.5, 626.2, 661.7, 673.6, 641.2, 663.9, 619.0, 673.1],
-      forecast:  [423.0, 356.0, 500.8, 558.4, 602.9, 597.5, 622.5, 639.3, 624.5, 658.1, 621.8, 684.3],
-      realizado: [440.2, 545.0, 539.0, 618.3, null, null, null, null, null, null, null, null],
+      budget:   [472.0,399.3,532.4,615.6,619.5,626.2,661.7,673.6,641.2,663.9,619.0,673.1],
+      forecast: [423.0,356.0,500.8,558.4,602.9,597.5,622.5,639.3,624.5,658.1,621.8,684.3],
+      realizado:[425.6,528.0,518.1,616.5,null,null,null,null,null,null,null,null],
     },
     especialistas: {
-      budget:    [300.8, 198.2, 328.3, 424.2, 474.7, 488.8, 525.1, 552.2, 535.2, 579.5, 597.3, 667.8],
-      forecast:  [344.6, 216.8, 367.4, 449.1, 452.0, 468.1, 548.3, 623.8, 605.3, 651.6, 649.9, 735.5],
-      realizado: [357.6, 357.1, 381.0, 366.9, null, null, null, null, null, null, null, null],
+      budget:   [300.8,198.2,328.3,424.2,474.7,488.8,525.1,552.2,535.2,579.5,597.3,667.8],
+      forecast: [344.6,216.8,367.4,449.1,452.0,468.1,548.3,623.8,605.3,651.6,649.9,735.5],
+      realizado:[332.4,335.0,356.8,361.9,null,null,null,null,null,null,null,null],
     },
     franquias: {
-      budget:    [135.8, 130.6, 179.1, 215.9, 206.2, 200.6, 212.1, 225.7, 205.5, 214.8, 211.5, 227.8],
-      forecast:  [194.4, 156.5, 203.8, 239.6, 229.8, 221.5, 233.6, 248.8, 225.9, 241.0, 237.8, 270.7],
-      realizado: [218.9, 216.1, 227.0, 261.4, null, null, null, null, null, null, null, null],
+      budget:   [135.8,130.6,179.1,215.9,206.2,200.6,212.1,225.7,205.5,214.8,211.5,227.8],
+      forecast: [194.4,156.5,203.8,239.6,229.8,221.5,233.6,248.8,225.9,241.0,237.8,270.7],
+      realizado:[206.8,204.0,214.5,254.0,null,null,null,null,null,null,null,null],
     },
   }
 };
 
-const _fcstGREEN='#00A868', _fcstRED='#D92B4B', _fcstFCST='#C8D4D0', _fcstBUDG='#8FA49E';
+const _fcstGREEN='#00A868',_fcstRED='#D92B4B',_fcstFCST='#C8D4D0',_fcstBUDG='#8FA49E';
 
-function fcstBuildChart(svgId, d) {
+function fcstBuildChart(svgId,d){
   const svg=document.getElementById(svgId);
-  while(svg.firstChild) svg.removeChild(svg.firstChild);
-  const isMobile = window.innerWidth <= 600;
-  const W=860, H=isMobile?200:240, PL=12, PR=12, PT=isMobile?20:28, PB=isMobile?26:32;
+  while(svg.firstChild)svg.removeChild(svg.firstChild);
+  const isMobile=window.innerWidth<=600;
+  const W=860,H=isMobile?200:240,PL=12,PR=12,PT=isMobile?20:28,PB=isMobile?26:32;
   svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
-  svg.style.height = isMobile ? '140px' : '200px';
-  const cW=W-PL-PR, cH=H-PT-PB;
-  const colW=cW/12;
-  const barW=colW*0.55;
+  svg.style.height=isMobile?'140px':'200px';
+  const cW=W-PL-PR,cH=H-PT-PB,colW=cW/12,barW=colW*0.55;
   const barX=i=>PL+i*colW+(colW-barW)/2;
   const allVals=[...d.budget,...d.forecast,...d.realizado.filter(v=>v!==null)];
   const maxVal=Math.max(...allVals)*1.18;
   const toY=v=>PT+cH*(1-v/maxVal);
   const toH=v=>cH*(v/maxVal);
-
   _fcstMESES.forEach((_,i)=>{
-    const bud=d.budget[i], fcst=d.forecast[i], real=d.realizado[i];
+    const bud=d.budget[i],fcst=d.forecast[i],real=d.realizado[i];
     const bx=barX(i);
     if(real!==null){
-      // Barra forecast atrás (mais larga e clara)
-      const rf=document.createElementNS('http://www.w3.org/2000/svg','rect');
-      rf.setAttribute('x',bx-2);rf.setAttribute('y',toY(fcst));
-      rf.setAttribute('width',barW+4);rf.setAttribute('height',toH(fcst));
-      rf.setAttribute('fill',_fcstFCST);rf.setAttribute('rx','3');rf.setAttribute('opacity','0.6');
-      svg.appendChild(rf);
-      // Barra realizado na frente
       const color=real>=bud?_fcstGREEN:_fcstRED;
       const r=document.createElementNS('http://www.w3.org/2000/svg','rect');
-      r.setAttribute('x',bx);r.setAttribute('y',toY(real));
-      r.setAttribute('width',barW);r.setAttribute('height',toH(real));
-      r.setAttribute('fill',color);r.setAttribute('rx','3');r.setAttribute('opacity','0.88');
-      svg.appendChild(r);
-      // Delta % vs budget
-      const delta = ((real/bud)-1)*100;
-      const sign = delta>=0 ? '+' : '';
+      r.setAttribute('x',bx);r.setAttribute('y',toY(real));r.setAttribute('width',barW);r.setAttribute('height',toH(real));r.setAttribute('fill',color);r.setAttribute('rx','3');r.setAttribute('opacity','0.88');svg.appendChild(r);
+      const delta=((real/bud)-1)*100,sign=delta>=0?'+':'';
       const dt=document.createElementNS('http://www.w3.org/2000/svg','text');
-      dt.setAttribute('x',bx+barW/2);
-      dt.setAttribute('y',toY(real)-5);
-      dt.setAttribute('text-anchor','middle');
-      dt.setAttribute('font-size','8');
-      dt.setAttribute('font-family','DM Mono,monospace');
-      dt.setAttribute('font-weight','600');
-      dt.setAttribute('fill',color);
-      dt.textContent=`${sign}${delta.toFixed(1)}%`;
-      svg.appendChild(dt);
+      dt.setAttribute('x',bx+barW/2);dt.setAttribute('y',toY(real)-5);dt.setAttribute('text-anchor','middle');dt.setAttribute('font-size','8');dt.setAttribute('font-family','DM Mono,monospace');dt.setAttribute('font-weight','600');dt.setAttribute('fill',color);dt.textContent=`${sign}${delta.toFixed(1)}%`;svg.appendChild(dt);
     } else {
       const r=document.createElementNS('http://www.w3.org/2000/svg','rect');
-      r.setAttribute('x',bx);r.setAttribute('y',toY(fcst));
-      r.setAttribute('width',barW);r.setAttribute('height',toH(fcst));
-      r.setAttribute('fill',_fcstFCST);r.setAttribute('rx','3');r.setAttribute('opacity','0.75');
-      svg.appendChild(r);
+      r.setAttribute('x',bx);r.setAttribute('y',toY(fcst));r.setAttribute('width',barW);r.setAttribute('height',toH(fcst));r.setAttribute('fill',_fcstFCST);r.setAttribute('rx','3');r.setAttribute('opacity','0.75');svg.appendChild(r);
     }
     const mt=document.createElementNS('http://www.w3.org/2000/svg','text');
-    mt.setAttribute('x',bx+barW/2);mt.setAttribute('y',H-PB+16);
-    mt.setAttribute('text-anchor','middle');mt.setAttribute('font-size','9');
-    mt.setAttribute('font-family','DM Sans,sans-serif');mt.setAttribute('fill','#8FA49E');
-    mt.textContent=_fcstMESES[i];
-    svg.appendChild(mt);
+    mt.setAttribute('x',bx+barW/2);mt.setAttribute('y',H-PB+16);mt.setAttribute('text-anchor','middle');mt.setAttribute('font-size','9');mt.setAttribute('font-family','DM Sans,sans-serif');mt.setAttribute('fill','#8FA49E');mt.textContent=_fcstMESES[i];svg.appendChild(mt);
   });
-
   const pts=_fcstMESES.map((_,i)=>`${barX(i)+barW/2},${toY(d.budget[i])}`).join(' ');
   const pl=document.createElementNS('http://www.w3.org/2000/svg','polyline');
-  pl.setAttribute('points',pts);pl.setAttribute('fill','none');
-  pl.setAttribute('stroke',_fcstBUDG);pl.setAttribute('stroke-width','1.2');
-  pl.setAttribute('stroke-dasharray','4 3');pl.setAttribute('opacity','0.6');
-  pl.setAttribute('stroke-linejoin','round');
-  svg.appendChild(pl);
+  pl.setAttribute('points',pts);pl.setAttribute('fill','none');pl.setAttribute('stroke',_fcstBUDG);pl.setAttribute('stroke-width','1.2');pl.setAttribute('stroke-dasharray','4 3');pl.setAttribute('opacity','0.6');pl.setAttribute('stroke-linejoin','round');svg.appendChild(pl);
 }
 
-let _currentChart = 'nc';
-let _currentArea = 'consolidado';
-
-function fcstToggleChart(chart) {
-  _currentChart = chart;
-  const isNC = chart === 'nc';
-  document.getElementById('fcst-chart-nc').style.display = isNC ? 'block' : 'none';
-  document.getElementById('fcst-chart-tpv').style.display = isNC ? 'none' : 'block';
-  const tnc = document.getElementById('fcst-toggle-nc');
-  const ttpv = document.getElementById('fcst-toggle-tpv');
-  tnc.style.background = isNC ? '#1A2420' : '#F4F6F5';
-  tnc.style.color = isNC ? '#fff' : '#5A706A';
-  tnc.style.borderColor = isNC ? '#1A2420' : '#DDE2DF';
-  ttpv.style.background = isNC ? '#F4F6F5' : '#1A2420';
-  ttpv.style.color = isNC ? '#5A706A' : '#fff';
-  ttpv.style.borderColor = isNC ? '#DDE2DF' : '#1A2420';
-  fcstBuildChart(`fcst-svg-${chart}`, _fcstDATA[chart][_currentArea]);
+let _currentChart='nc',_currentArea='consolidado';
+function fcstToggleChart(chart){
+  _currentChart=chart;const isNC=chart==='nc';
+  document.getElementById('fcst-chart-nc').style.display=isNC?'block':'none';
+  document.getElementById('fcst-chart-tpv').style.display=isNC?'none':'block';
+  const tnc=document.getElementById('fcst-toggle-nc'),ttpv=document.getElementById('fcst-toggle-tpv');
+  tnc.style.background=isNC?'#1A2420':'#F4F6F5';tnc.style.color=isNC?'#fff':'#5A706A';tnc.style.borderColor=isNC?'#1A2420':'#DDE2DF';
+  ttpv.style.background=isNC?'#F4F6F5':'#1A2420';ttpv.style.color=isNC?'#5A706A':'#fff';ttpv.style.borderColor=isNC?'#DDE2DF':'#1A2420';
+  fcstBuildChart(`fcst-svg-${chart}`,_fcstDATA[chart][_currentArea]);
 }
-
-function fcstSelectArea(area) {
-  _currentArea = area;
+function fcstSelectArea(area){
+  _currentArea=area;
   document.querySelectorAll('#fcst-btns-area .wf-btn').forEach(b=>b.classList.toggle('active',b.dataset.area===area));
-  fcstBuildChart(`fcst-svg-${_currentChart}`, _fcstDATA[_currentChart][area]);
+  fcstBuildChart(`fcst-svg-${_currentChart}`,_fcstDATA[_currentChart][area]);
 }
-
-fcstBuildChart('fcst-svg-nc', _fcstDATA.nc.consolidado);
+fcstBuildChart('fcst-svg-nc',_fcstDATA.nc.consolidado);
 </script>
 
-<div class="footer">
-  <p>Stone · Área Comercial · Dados extraídos dos sistemas internos</p>
-  <p>Referência: 29/04/2026</p>
-</div>
-
-<!-- WATERFALL SCRIPT -->
 <script>
+// ===== WATERFALL DATA =====
 const _wfData = {
-  day: {
-    consolidado:   [ {name:["NC","Meta"],val:"1.727",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"208",delta:-5.9,type:"neg"}, {name:["Prod.","Tarefa"],val:"8,2",delta:+17.4,type:"pos"}, {name:["Conv 1",""],val:"16,1%",delta:-3.2,type:"neg"}, {name:["Conv 2",""],val:"33,0%",delta:-12.8,type:"neg"}, {name:["NC","Realizado"],val:"1.706",delta:-1.2,type:"result"} ],
-    polos:         [ {name:["NC","Meta"],val:"1.035",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"127",delta:-6.0,type:"neg"}, {name:["Prod.","Tarefa"],val:"8,8",delta:+8.8,type:"pos"}, {name:["Conv 1",""],val:"14,2%",delta:+2.6,type:"pos"}, {name:["Conv 2",""],val:"32,1%",delta:-18.7,type:"neg"}, {name:["NC","Realizado"],val:"955",delta:-7.7,type:"result"} ],
-    centro_norte:  [ {name:["NC","Meta"],val:"207",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"26",delta:-6.5,type:"neg"}, {name:["Prod.","Tarefa"],val:"9,4",delta:-15.3,type:"neg"}, {name:["Conv 1",""],val:"11,5%",delta:+0.5,type:"pos"}, {name:["Conv 2",""],val:"32,7%",delta:-8.6,type:"neg"}, {name:["NC","Realizado"],val:"161",delta:-22.2,type:"result"} ],
-    nordeste:      [ {name:["NC","Meta"],val:"217",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"28",delta:-2.4,type:"neg"}, {name:["Prod.","Tarefa"],val:"7,6",delta:+23.4,type:"pos"}, {name:["Conv 1",""],val:"17,1%",delta:-1.7,type:"neg"}, {name:["Conv 2",""],val:"39,6%",delta:-10.5,type:"neg"}, {name:["NC","Realizado"],val:"225",delta:+3.5,type:"result"} ],
-    sp:            [ {name:["NC","Meta"],val:"232",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"39",delta:+1.1,type:"pos"}, {name:["Prod.","Tarefa"],val:"8,2",delta:+20.3,type:"pos"}, {name:["Conv 1",""],val:"16,0%",delta:+2.1,type:"pos"}, {name:["Conv 2",""],val:"23,7%",delta:-36.1,type:"neg"}, {name:["NC","Realizado"],val:"186",delta:-19.7,type:"result"} ],
-    sudeste:       [ {name:["NC","Meta"],val:"190",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"27",delta:-5.8,type:"neg"}, {name:["Prod.","Tarefa"],val:"9,2",delta:+15.6,type:"pos"}, {name:["Conv 1",""],val:"13,5%",delta:+6.1,type:"pos"}, {name:["Conv 2",""],val:"36,5%",delta:-19.1,type:"neg"}, {name:["NC","Realizado"],val:"198",delta:+4.4,type:"result"} ],
-    sul:           [ {name:["NC","Meta"],val:"186",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"21",delta:-21.4,type:"neg"}, {name:["Prod.","Tarefa"],val:"9,6",delta:+13.3,type:"pos"}, {name:["Conv 1",""],val:"13,6%",delta:-0.1,type:"neg"}, {name:["Conv 2",""],val:"23,8%",delta:-37.0,type:"neg"}, {name:["NC","Realizado"],val:"144",delta:-24.1,type:"result"} ],
-    especialistas: [ {name:["NC","Meta"],val:"199",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"29",delta:-6.5,type:"neg"}, {name:["Prod.","Tarefa"],val:"7,6",delta:+18.6,type:"pos"}, {name:["Conv 1",""],val:"18,3%",delta:-3.9,type:"neg"}, {name:["Conv 2",""],val:"21,6%",delta:-22.8,type:"neg"}, {name:["NC","Realizado"],val:"164",delta:-17.8,type:"result"} ],
-    franquias:     [ {name:["NC","Meta"],val:"492",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"52",delta:-6.3,type:"neg"}, {name:["Prod.","Tarefa"],val:"7,1",delta:+49.4,type:"pos"}, {name:["Conv 1",""],val:"20,5%",delta:-20.9,type:"neg"}, {name:["Conv 2",""],val:"41,0%",delta:+2.3,type:"pos"}, {name:["NC","Realizado"],val:"587",delta:+19.3,type:"result"} ],
+  day: { // Semana 27-30/04
+    consolidado:  [{name:["NC","Meta"],val:"6.920",delta:null,type:"ref"},{name:["HC","Ativo"],val:"774",delta:-2.4,type:"neg"},{name:["Prod.","Tarefa"],val:"8,2",delta:+17.9,type:"pos"},{name:["Conv 1",""],val:"15,5%",delta:-6.6,type:"neg"},{name:["Conv 2",""],val:"32,3%",delta:-14.7,type:"neg"},{name:["NC","Realizado"],val:"6.333",delta:-8.5,type:"result"}],
+    polos:        [{name:["NC","Meta"],val:"4.148",delta:null,type:"ref"},{name:["HC","Ativo"],val:"468",delta:-1.5,type:"neg"},{name:["Prod.","Tarefa"],val:"8,9",delta:+11.0,type:"pos"},{name:["Conv 1",""],val:"13,8%",delta:-0.6,type:"neg"},{name:["Conv 2",""],val:"30,9%",delta:-21.9,type:"neg"},{name:["NC","Realizado"],val:"3.521",delta:-15.1,type:"result"}],
+    centro_norte: [{name:["NC","Meta"],val:"827",delta:null,type:"ref"},{name:["HC","Ativo"],val:"88",delta:-3.9,type:"neg"},{name:["Prod.","Tarefa"],val:"9,9",delta:-11.5,type:"neg"},{name:["Conv 1",""],val:"11,4%",delta:-0.5,type:"neg"},{name:["Conv 2",""],val:"31,5%",delta:-11.7,type:"neg"},{name:["NC","Realizado"],val:"618",delta:-25.3,type:"result"}],
+    nordeste:     [{name:["NC","Meta"],val:"870",delta:null,type:"ref"},{name:["HC","Ativo"],val:"85",delta:-8.1,type:"neg"},{name:["Prod.","Tarefa"],val:"7,8",delta:+26.4,type:"pos"},{name:["Conv 1",""],val:"16,0%",delta:-7.8,type:"neg"},{name:["Conv 2",""],val:"36,6%",delta:-17.3,type:"neg"},{name:["NC","Realizado"],val:"771",delta:-11.4,type:"result"}],
+    sp:           [{name:["NC","Meta"],val:"926",delta:null,type:"ref"},{name:["HC","Ativo"],val:"117",delta:-1.0,type:"neg"},{name:["Prod.","Tarefa"],val:"8,2",delta:+20.5,type:"pos"},{name:["Conv 1",""],val:"15,3%",delta:-2.5,type:"neg"},{name:["Conv 2",""],val:"26,9%",delta:-27.3,type:"neg"},{name:["NC","Realizado"],val:"784",delta:-15.4,type:"result"}],
+    sudeste:      [{name:["NC","Meta"],val:"766",delta:null,type:"ref"},{name:["HC","Ativo"],val:"89",delta:+1.1,type:"pos"},{name:["Prod.","Tarefa"],val:"9,3",delta:+18.0,type:"pos"},{name:["Conv 1",""],val:"12,9%",delta:+1.2,type:"pos"},{name:["Conv 2",""],val:"34,9%",delta:-22.5,type:"neg"},{name:["NC","Realizado"],val:"717",delta:-6.4,type:"result"}],
+    sul:          [{name:["NC","Meta"],val:"759",delta:null,type:"ref"},{name:["HC","Ativo"],val:"91",delta:+4.6,type:"pos"},{name:["Prod.","Tarefa"],val:"9,6",delta:+12.2,type:"pos"},{name:["Conv 1",""],val:"13,6%",delta:+0.2,type:"pos"},{name:["Conv 2",""],val:"26,7%",delta:-29.3,type:"neg"},{name:["NC","Realizado"],val:"631",delta:-16.8,type:"result"}],
+    especialistas:[{name:["NC","Meta"],val:"799",delta:null,type:"ref"},{name:["HC","Ativo"],val:"110",delta:-7.0,type:"neg"},{name:["Prod.","Tarefa"],val:"7,4",delta:+16.5,type:"pos"},{name:["Conv 1",""],val:"16,0%",delta:-16.1,type:"neg"},{name:["Conv 2",""],val:"22,4%",delta:-20.1,type:"neg"},{name:["NC","Realizado"],val:"579",delta:-27.5,type:"result"}],
+    franquias:    [{name:["NC","Meta"],val:"1.974",delta:null,type:"ref"},{name:["HC","Ativo"],val:"196",delta:-1.9,type:"neg"},{name:["Prod.","Tarefa"],val:"6,9",delta:+45.8,type:"pos"},{name:["Conv 1",""],val:"20,7%",delta:-19.9,type:"neg"},{name:["Conv 2",""],val:"39,8%",delta:-0.8,type:"neg"},{name:["NC","Realizado"],val:"2.233",delta:+13.1,type:"result"}],
   },
-  month: {
-    consolidado:   [ {name:["NC","Meta"],val:"32.599",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"3.852",delta:-1.3,type:"neg"}, {name:["Prod.","Tarefa"],val:"8,1",delta:+17.0,type:"pos"}, {name:["Conv 1",""],val:"16,0%",delta:-4.1,type:"neg"}, {name:["Conv 2",""],val:"31,6%",delta:-16.6,type:"neg"}, {name:["NC","Realizado"],val:"29.820",delta:-8.5,type:"result"} ],
-    polos:         [ {name:["NC","Meta"],val:"19.539",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"2.336",delta:-1.5,type:"neg"}, {name:["Prod.","Tarefa"],val:"8,9",delta:+11.3,type:"pos"}, {name:["Conv 1",""],val:"14,2%",delta:+2.1,type:"pos"}, {name:["Conv 2",""],val:"30,7%",delta:-22.4,type:"neg"}, {name:["NC","Realizado"],val:"17.232",delta:-11.8,type:"result"} ],
-    m_centro_norte:[ {name:["NC","Meta"],val:"3.922",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"453",delta:-1.5,type:"neg"}, {name:["Prod.","Tarefa"],val:"9,8",delta:-12.2,type:"neg"}, {name:["Conv 1",""],val:"12,3%",delta:+7.9,type:"pos"}, {name:["Conv 2",""],val:"30,0%",delta:-16.0,type:"neg"}, {name:["NC","Realizado"],val:"3.082",delta:-21.4,type:"result"} ],
-    m_nordeste:    [ {name:["NC","Meta"],val:"4.120",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"426",delta:-7.2,type:"neg"}, {name:["Prod.","Tarefa"],val:"7,7",delta:+24.1,type:"pos"}, {name:["Conv 1",""],val:"15,7%",delta:-9.4,type:"neg"}, {name:["Conv 2",""],val:"37,3%",delta:-15.8,type:"neg"}, {name:["NC","Realizado"],val:"3.624",delta:-12.0,type:"result"} ],
-    m_sp:          [ {name:["NC","Meta"],val:"4.378",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"584",delta:-0.3,type:"neg"}, {name:["Prod.","Tarefa"],val:"8,5",delta:+24.6,type:"pos"}, {name:["Conv 1",""],val:"15,8%",delta:+1.1,type:"pos"}, {name:["Conv 2",""],val:"28,1%",delta:-24.1,type:"neg"}, {name:["NC","Realizado"],val:"4.178",delta:-4.6,type:"result"} ],
-    m_sudeste:     [ {name:["NC","Meta"],val:"3.522",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"421",delta:-1.1,type:"neg"}, {name:["Prod.","Tarefa"],val:"9,5",delta:+21.2,type:"pos"}, {name:["Conv 1",""],val:"12,9%",delta:+1.2,type:"pos"}, {name:["Conv 2",""],val:"33,2%",delta:-26.3,type:"neg"}, {name:["NC","Realizado"],val:"3.222",delta:-8.5,type:"result"} ],
-    m_sul:         [ {name:["NC","Meta"],val:"3.597",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"453",delta:+4.6,type:"pos"}, {name:["Prod.","Tarefa"],val:"9,3",delta:+9.6,type:"pos"}, {name:["Conv 1",""],val:"14,2%",delta:+4.8,type:"pos"}, {name:["Conv 2",""],val:"27,3%",delta:-27.9,type:"neg"}, {name:["NC","Realizado"],val:"3.126",delta:-13.1,type:"result"} ],
-    especialistas: [ {name:["NC","Meta"],val:"3.759",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"540",delta:-8.5,type:"neg"}, {name:["Prod.","Tarefa"],val:"7,3",delta:+14.6,type:"pos"}, {name:["Conv 1",""],val:"16,4%",delta:-13.6,type:"neg"}, {name:["Conv 2",""],val:"21,5%",delta:-23.4,type:"neg"}, {name:["NC","Realizado"],val:"2.628",delta:-30.1,type:"result"} ],
-    franquias:     [ {name:["NC","Meta"],val:"9.300",delta:null,type:"ref"}, {name:["HC","Ativo"],val:"979",delta:-1.8,type:"neg"}, {name:["Prod.","Tarefa"],val:"6,7",delta:+40.9,type:"pos"}, {name:["Conv 1",""],val:"21,2%",delta:-17.9,type:"neg"}, {name:["Conv 2",""],val:"37,6%",delta:-6.2,type:"neg"}, {name:["NC","Realizado"],val:"9.960",delta:+7.1,type:"result"} ],
+  month: { // Acumulado abril
+    consolidado:  [{name:["NC","Meta"],val:"34.330",delta:null,type:"ref"},{name:["HC","Ativo"],val:"3.844",delta:-2.2,type:"neg"},{name:["Prod.","Tarefa"],val:"8,1",delta:+16.6,type:"pos"},{name:["Conv 1",""],val:"15,8%",delta:-5.0,type:"neg"},{name:["Conv 2",""],val:"31,3%",delta:-17.3,type:"neg"},{name:["NC","Realizado"],val:"30.712",delta:-10.5,type:"result"}],
+    polos:        [{name:["NC","Meta"],val:"20.577",delta:null,type:"ref"},{name:["HC","Ativo"],val:"2.328",delta:-1.2,type:"neg"},{name:["Prod.","Tarefa"],val:"8,9",delta:+10.8,type:"pos"},{name:["Conv 1",""],val:"14,0%",delta:+1.3,type:"pos"},{name:["Conv 2",""],val:"30,5%",delta:-22.9,type:"neg"},{name:["NC","Realizado"],val:"17.603",delta:-14.5,type:"result"}],
+    m_centro_norte:[{name:["NC","Meta"],val:"4.129",delta:null,type:"ref"},{name:["HC","Ativo"],val:"447",delta:-1.7,type:"neg"},{name:["Prod.","Tarefa"],val:"9,7",delta:-12.6,type:"neg"},{name:["Conv 1",""],val:"12,1%",delta:+6.0,type:"pos"},{name:["Conv 2",""],val:"29,8%",delta:-16.6,type:"neg"},{name:["NC","Realizado"],val:"3.137",delta:-24.0,type:"result"}],
+    m_nordeste:   [{name:["NC","Meta"],val:"4.337",delta:null,type:"ref"},{name:["HC","Ativo"],val:"423",delta:-7.6,type:"neg"},{name:["Prod.","Tarefa"],val:"7,7",delta:+24.3,type:"pos"},{name:["Conv 1",""],val:"15,5%",delta:-10.6,type:"neg"},{name:["Conv 2",""],val:"36,8%",delta:-16.8,type:"neg"},{name:["NC","Realizado"],val:"3.705",delta:-14.6,type:"result"}],
+    m_sp:         [{name:["NC","Meta"],val:"4.610",delta:null,type:"ref"},{name:["HC","Ativo"],val:"582",delta:-0.6,type:"neg"},{name:["Prod.","Tarefa"],val:"8,4",delta:+22.9,type:"pos"},{name:["Conv 1",""],val:"15,7%",delta:+0.2,type:"pos"},{name:["Conv 2",""],val:"27,8%",delta:-25.0,type:"neg"},{name:["NC","Realizado"],val:"4.232",delta:-8.2,type:"result"}],
+    m_sudeste:    [{name:["NC","Meta"],val:"3.714",delta:null,type:"ref"},{name:["HC","Ativo"],val:"421",delta:-0.7,type:"neg"},{name:["Prod.","Tarefa"],val:"9,5",delta:+20.2,type:"pos"},{name:["Conv 1",""],val:"12,9%",delta:+1.3,type:"pos"},{name:["Conv 2",""],val:"33,2%",delta:-26.2,type:"neg"},{name:["NC","Realizado"],val:"3.314",delta:-10.8,type:"result"}],
+    m_sul:        [{name:["NC","Meta"],val:"3.787",delta:null,type:"ref"},{name:["HC","Ativo"],val:"454",delta:+4.8,type:"pos"},{name:["Prod.","Tarefa"],val:"9,4",delta:+10.1,type:"pos"},{name:["Conv 1",""],val:"14,1%",delta:+3.4,type:"pos"},{name:["Conv 2",""],val:"26,9%",delta:-28.9,type:"neg"},{name:["NC","Realizado"],val:"3.215",delta:-15.1,type:"result"}],
+    especialistas:[{name:["NC","Meta"],val:"3.959",delta:null,type:"ref"},{name:["HC","Ativo"],val:"540",delta:-8.0,type:"neg"},{name:["Prod.","Tarefa"],val:"7,3",delta:+14.9,type:"pos"},{name:["Conv 1",""],val:"16,1%",delta:-15.2,type:"neg"},{name:["Conv 2",""],val:"21,3%",delta:-24.1,type:"neg"},{name:["NC","Realizado"],val:"2.680",delta:-32.3,type:"result"}],
+    franquias:    [{name:["NC","Meta"],val:"9.794",delta:null,type:"ref"},{name:["HC","Ativo"],val:"976",delta:-1.2,type:"neg"},{name:["Prod.","Tarefa"],val:"6,7",delta:+40.2,type:"pos"},{name:["Conv 1",""],val:"21,2%",delta:-17.9,type:"neg"},{name:["Conv 2",""],val:"37,7%",delta:-6.0,type:"neg"},{name:["NC","Realizado"],val:"10.429",delta:+6.5,type:"result"}],
   }
 };
 
-const _wfColors = { ref:"#8FA49E", pos:"#00A868", neg:"#D92B4B", result:"#4A6260" };
+// TPV Waterfall Acumulado
+const _tpvData = {
+  consolidado:  [{name:["TPV M1","Meta"],val:"R$1.353,8mi",delta:null,type:"ref"},{name:["TPV","Médio"],val:"R$40.916",delta:-1.0,type:"neg"},{name:["Prod M1","Ativos/HCDU"],val:"0,395",delta:-5.8,type:"neg"},{name:["HC","Ativo"],val:"3.844",delta:-2.2,type:"neg"},{name:["TPV M1","Realizado"],val:"R$1.232,5mi",delta:-9.0,type:"result"}],
+  polos:        [{name:["TPV M1","Meta"],val:"R$639,8mi",delta:null,type:"ref"},{name:["TPV","Médio"],val:"R$34.761",delta:+7.8,type:"pos"},{name:["Prod M1","Ativos/HCDU"],val:"0,384",delta:-9.5,type:"neg"},{name:["HC","Ativo"],val:"2.328",delta:-1.2,type:"neg"},{name:["TPV M1","Realizado"],val:"R$616,5mi",delta:-3.6,type:"result"}],
+  tcn:          [{name:["TPV M1","Meta"],val:"R$138,4mi",delta:null,type:"ref"},{name:["TPV","Médio"],val:"R$37.397",delta:+7.1,type:"pos"},{name:["Prod M1","Ativos/HCDU"],val:"0,357",delta:-18.3,type:"neg"},{name:["HC","Ativo"],val:"447",delta:-1.7,type:"neg"},{name:["TPV M1","Realizado"],val:"R$119,1mi",delta:-14.0,type:"result"}],
+  tne:          [{name:["TPV M1","Meta"],val:"R$123,6mi",delta:null,type:"ref"},{name:["TPV","Médio"],val:"R$33.704",delta:+9.1,type:"pos"},{name:["Prod M1","Ativos/HCDU"],val:"0,454",delta:+3.8,type:"pos"},{name:["HC","Ativo"],val:"423",delta:-7.6,type:"neg"},{name:["TPV M1","Realizado"],val:"R$129,3mi",delta:+4.6,type:"result"}],
+  tsp:          [{name:["TPV M1","Meta"],val:"R$142,9mi",delta:null,type:"ref"},{name:["TPV","Médio"],val:"R$33.123",delta:+4.6,type:"pos"},{name:["Prod M1","Ativos/HCDU"],val:"0,355",delta:-8.2,type:"neg"},{name:["HC","Ativo"],val:"582",delta:-0.6,type:"neg"},{name:["TPV M1","Realizado"],val:"R$136,4mi",delta:-4.5,type:"result"}],
+  tse:          [{name:["TPV M1","Meta"],val:"R$117,2mi",delta:null,type:"ref"},{name:["TPV","Médio"],val:"R$38.085",delta:+19.7,type:"pos"},{name:["Prod M1","Ativos/HCDU"],val:"0,410",delta:-8.7,type:"neg"},{name:["HC","Ativo"],val:"421",delta:-0.7,type:"neg"},{name:["TPV M1","Realizado"],val:"R$127,2mi",delta:+8.5,type:"result"}],
+  tsul:         [{name:["TPV M1","Meta"],val:"R$117,8mi",delta:null,type:"ref"},{name:["TPV","Médio"],val:"R$32.092",delta:+0.4,type:"pos"},{name:["Prod M1","Ativos/HCDU"],val:"0,359",delta:-15.6,type:"neg"},{name:["HC","Ativo"],val:"454",delta:+4.8,type:"pos"},{name:["TPV M1","Realizado"],val:"R$104,6mi",delta:-11.2,type:"result"}],
+  especialistas:[{name:["TPV M1","Meta"],val:"R$475,2mi",delta:null,type:"ref"},{name:["TPV","Médio"],val:"R$135.746",delta:+3.4,type:"pos"},{name:["Prod M1","Ativos/HCDU"],val:"0,250",delta:-19.4,type:"neg"},{name:["HC","Ativo"],val:"540",delta:-8.0,type:"neg"},{name:["TPV M1","Realizado"],val:"R$361,9mi",delta:-23.8,type:"result"}],
+  franquias:    [{name:["TPV M1","Meta"],val:"R$238,9mi",delta:null,type:"ref"},{name:["TPV","Médio"],val:"R$26.136",delta:+1.8,type:"pos"},{name:["Prod M1","Ativos/HCDU"],val:"0,498",delta:+6.2,type:"pos"},{name:["HC","Ativo"],val:"976",delta:-1.2,type:"neg"},{name:["TPV M1","Realizado"],val:"R$254,0mi",delta:+6.4,type:"result"}],
+};
+
+const _wfColors={ref:"#8FA49E",pos:"#00A868",neg:"#D92B4B",result:"#4A6260"};
 const _W=820,_H=360,_PL=14,_PR=14,_PT=72,_PB=68,_BASE=100;
 
-function _buildWF(svgId, data) {
-  const svg = document.getElementById(svgId);
-  if (!svg) return;
-  while (svg.firstChild) svg.removeChild(svg.firstChild);
-
-  const isMobile = window.innerWidth <= 600;
-  const H = isMobile ? 260 : _H;
-  const PT = isMobile ? 52 : _PT;
-  const PB = isMobile ? 48 : _PB;
-  const cH = H - PT - PB;
-
-  svg.setAttribute('viewBox', `0 0 ${_W} ${H}`);
-  svg.style.height = isMobile ? '160px' : '250px';
-
-  const n = data.length;
-  const colW = (_W-_PL-_PR)/n;
-  const barW = colW*0.52;
-  const barGap = (colW-barW)/2;
-
-  let running = _BASE;
-  const levels = [];
-  data.forEach((d,i) => {
-    if (i===0){levels.push(_BASE);return;}
-    if (i===data.length-1){levels.push(running);return;}
-    running += d.delta; levels.push(running);
-  });
-
-  const allVals = [...levels,0];
-  const minVal = Math.min(...allVals)-6;
-  const maxVal = Math.max(...allVals)+14;
-  const range = maxVal-minVal;
-  const toY = pct => PT + cH*(1-(pct-minVal)/range);
-
-  const y100 = toY(_BASE);
-  const zl = document.createElementNS("http://www.w3.org/2000/svg","line");
-  zl.setAttribute("x1",_PL); zl.setAttribute("x2",_W-_PR);
-  zl.setAttribute("y1",y100); zl.setAttribute("y2",y100);
-  zl.setAttribute("stroke","#DDE2DF"); zl.setAttribute("stroke-width","1.5");
-  zl.setAttribute("stroke-dasharray","5 4");
-  svg.appendChild(zl);
-
-  let runLevel = _BASE;
-  data.forEach((d,i) => {
-    const x = _PL+i*colW+barGap;
-    const cx = _PL+i*colW+colW/2;
-    const color = _wfColors[d.type];
-    let yTop, yBot;
-
-    if (i===0){ yTop=toY(_BASE); yBot=toY(minVal-2); }
-    else if (i===data.length-1){ yTop=toY(runLevel); yBot=toY(minVal-2); }
-    else {
-      const nl=runLevel+d.delta;
-      yTop=d.delta>=0?toY(nl):toY(runLevel);
-      yBot=d.delta>=0?toY(runLevel):toY(nl);
-      runLevel=nl;
-    }
-
-    const rect = document.createElementNS("http://www.w3.org/2000/svg","rect");
-    rect.setAttribute("x",x); rect.setAttribute("y",yTop);
-    rect.setAttribute("width",barW); rect.setAttribute("height",Math.max(yBot-yTop,4));
-    rect.setAttribute("fill",color); rect.setAttribute("rx","4"); rect.setAttribute("opacity","0.9");
-    svg.appendChild(rect);
-
-    if (i<data.length-1){
-      const lineY = i===0?toY(_BASE):toY(runLevel);
-      const conn = document.createElementNS("http://www.w3.org/2000/svg","line");
-      conn.setAttribute("x1",x+barW); conn.setAttribute("x2",x+colW);
-      conn.setAttribute("y1",lineY); conn.setAttribute("y2",lineY);
-      conn.setAttribute("stroke","#B0BDB8"); conn.setAttribute("stroke-width","1.2");
-      conn.setAttribute("stroke-dasharray","4 3");
-      svg.appendChild(conn);
-    }
-
-    if (d.delta!==null){
-      const isPos=d.delta>=0, isLast=i===data.length-1;
+function _buildWF(svgId,data){
+  const svg=document.getElementById(svgId);
+  if(!svg)return;
+  while(svg.firstChild)svg.removeChild(svg.firstChild);
+  const isMobile=window.innerWidth<=600;
+  const H=isMobile?260:_H,PT=isMobile?52:_PT,PB=isMobile?48:_PB,cH=H-PT-PB;
+  svg.setAttribute('viewBox',`0 0 ${_W} ${H}`);
+  svg.style.height=isMobile?'160px':'250px';
+  const n=data.length,colW=(_W-_PL-_PR)/n,barW=colW*0.52,barGap=(colW-barW)/2;
+  let running=_BASE;
+  const levels=[];
+  data.forEach((d,i)=>{if(i===0){levels.push(_BASE);return;}if(i===data.length-1){levels.push(running);return;}running+=d.delta;levels.push(running);});
+  const allVals=[...levels,0],minVal=Math.min(...allVals)-6,maxVal=Math.max(...allVals)+14,range=maxVal-minVal;
+  const toY=pct=>PT+cH*(1-(pct-minVal)/range);
+  const y100=toY(_BASE);
+  const zl=document.createElementNS("http://www.w3.org/2000/svg","line");
+  zl.setAttribute("x1",_PL);zl.setAttribute("x2",_W-_PR);zl.setAttribute("y1",y100);zl.setAttribute("y2",y100);zl.setAttribute("stroke","#DDE2DF");zl.setAttribute("stroke-width","1.5");zl.setAttribute("stroke-dasharray","5 4");svg.appendChild(zl);
+  let runLevel=_BASE;
+  data.forEach((d,i)=>{
+    const x=_PL+i*colW+barGap,cx=_PL+i*colW+colW/2,color=_wfColors[d.type];
+    let yTop,yBot;
+    if(i===0){yTop=toY(_BASE);yBot=toY(minVal-2);}
+    else if(i===data.length-1){yTop=toY(runLevel);yBot=toY(minVal-2);}
+    else{const nl=runLevel+d.delta;yTop=d.delta>=0?toY(nl):toY(runLevel);yBot=d.delta>=0?toY(runLevel):toY(nl);runLevel=nl;}
+    const rect=document.createElementNS("http://www.w3.org/2000/svg","rect");
+    rect.setAttribute("x",x);rect.setAttribute("y",yTop);rect.setAttribute("width",barW);rect.setAttribute("height",Math.max(yBot-yTop,4));rect.setAttribute("fill",color);rect.setAttribute("rx","4");rect.setAttribute("opacity","0.9");svg.appendChild(rect);
+    if(i<data.length-1){const lineY=i===0?toY(_BASE):toY(runLevel);const conn=document.createElementNS("http://www.w3.org/2000/svg","line");conn.setAttribute("x1",x+barW);conn.setAttribute("x2",x+colW);conn.setAttribute("y1",lineY);conn.setAttribute("y2",lineY);conn.setAttribute("stroke","#B0BDB8");conn.setAttribute("stroke-width","1.2");conn.setAttribute("stroke-dasharray","4 3");svg.appendChild(conn);}
+    if(d.delta!==null){
+      const isPos=d.delta>=0,isLast=i===data.length-1;
       let deltaY,valY;
-      if (isLast){ deltaY=yTop-30; valY=yTop-16; }
-      else if (isPos){ valY=yTop-32; deltaY=yTop-18; }
-      else { valY=yTop-10; deltaY=yBot+26; }
-
-      const vl = document.createElementNS("http://www.w3.org/2000/svg","text");
-      vl.setAttribute("x",cx); vl.setAttribute("y",valY); vl.setAttribute("text-anchor","middle");
-      vl.setAttribute("font-size","11"); vl.setAttribute("font-weight","500");
-      vl.setAttribute("font-family","DM Sans,sans-serif"); vl.setAttribute("fill","#1A2420");
-      vl.textContent=d.val; svg.appendChild(vl);
-
-      const dl = document.createElementNS("http://www.w3.org/2000/svg","text");
-      dl.setAttribute("x",cx); dl.setAttribute("y",deltaY); dl.setAttribute("text-anchor","middle");
-      dl.setAttribute("font-size","11"); dl.setAttribute("font-weight","600");
-      dl.setAttribute("font-family","DM Mono,monospace");
-      dl.setAttribute("fill",isPos?"#006B40":"#B81F3A");
-      dl.textContent=(isPos?"+":"")+d.delta.toFixed(1)+"%"; svg.appendChild(dl);
+      if(isLast){deltaY=yTop-30;valY=yTop-16;}else if(isPos){valY=yTop-32;deltaY=yTop-18;}else{valY=yTop-10;deltaY=yBot+26;}
+      const vl=document.createElementNS("http://www.w3.org/2000/svg","text");vl.setAttribute("x",cx);vl.setAttribute("y",valY);vl.setAttribute("text-anchor","middle");vl.setAttribute("font-size","11");vl.setAttribute("font-weight","500");vl.setAttribute("font-family","DM Sans,sans-serif");vl.setAttribute("fill","#1A2420");vl.textContent=d.val;svg.appendChild(vl);
+      const dl=document.createElementNS("http://www.w3.org/2000/svg","text");dl.setAttribute("x",cx);dl.setAttribute("y",deltaY);dl.setAttribute("text-anchor","middle");dl.setAttribute("font-size","11");dl.setAttribute("font-weight","600");dl.setAttribute("font-family","DM Mono,monospace");dl.setAttribute("fill",isPos?"#006B40":"#B81F3A");dl.textContent=(isPos?"+":"")+d.delta.toFixed(1)+"%";svg.appendChild(dl);
     } else {
-      const vl = document.createElementNS("http://www.w3.org/2000/svg","text");
-      vl.setAttribute("x",cx); vl.setAttribute("y",yTop-10); vl.setAttribute("text-anchor","middle");
-      vl.setAttribute("font-size","11"); vl.setAttribute("font-weight","500");
-      vl.setAttribute("font-family","DM Sans,sans-serif"); vl.setAttribute("fill","#1A2420");
-      vl.textContent=d.val; svg.appendChild(vl);
+      const vl=document.createElementNS("http://www.w3.org/2000/svg","text");vl.setAttribute("x",cx);vl.setAttribute("y",yTop-10);vl.setAttribute("text-anchor","middle");vl.setAttribute("font-size","11");vl.setAttribute("font-weight","500");vl.setAttribute("font-family","DM Sans,sans-serif");vl.setAttribute("fill","#1A2420");vl.textContent=d.val;svg.appendChild(vl);
     }
-
-    const nameY = H-PB+18;
-    d.name.forEach((line,li) => {
-      if (!line) return;
-      const nl = document.createElementNS("http://www.w3.org/2000/svg","text");
-      nl.setAttribute("x",cx); nl.setAttribute("y",nameY+li*16); nl.setAttribute("text-anchor","middle");
-      nl.setAttribute("font-size","12"); nl.setAttribute("font-family","DM Sans,sans-serif");
-      nl.setAttribute("fill",i===0||i===data.length-1?"#1A2420":"#5A706A");
-      nl.setAttribute("font-weight",i===0||i===data.length-1?"600":"400");
-      nl.textContent=line; svg.appendChild(nl);
-    });
+    const nameY=H-PB+18;
+    d.name.forEach((line,li)=>{if(!line)return;const nl=document.createElementNS("http://www.w3.org/2000/svg","text");nl.setAttribute("x",cx);nl.setAttribute("y",nameY+li*16);nl.setAttribute("text-anchor","middle");nl.setAttribute("font-size","12");nl.setAttribute("font-family","DM Sans,sans-serif");nl.setAttribute("fill",i===0||i===data.length-1?"#1A2420":"#5A706A");nl.setAttribute("font-weight",i===0||i===data.length-1?"600":"400");nl.textContent=line;svg.appendChild(nl);});
   });
 }
 
-function selectArea(chart, area) {
-  document.querySelectorAll(`.wf-btn-${chart}`).forEach(b => {
-    b.classList.toggle('active', b.dataset.area === area);
-  });
-  _buildWF(`svg-funnel-${chart}`, _wfData[chart][area]);
-}
+// Verificação de consistência waterfall
+const erros=[];
+Object.entries(_wfData).forEach(([sess,areas])=>Object.entries(areas).forEach(([area,barras])=>barras.forEach(b=>{if(b.delta===null)return;if(b.type==='ref'||b.type==='result')return;if(b.delta>0&&b.type!=='pos')erros.push(`${sess}/${area}: delta ${b.delta} mas type="${b.type}"`);if(b.delta<0&&b.type!=='neg')erros.push(`${sess}/${area}: delta ${b.delta} mas type="${b.type}"`);})));
+// Verificação: erros.length ? console.warn(erros) : null;
 
-function selectAreaDay(area) {
+function selectAreaDay(area){
   document.querySelectorAll('.wf-btn-day:not(.reg)').forEach(b=>b.classList.toggle('active',b.dataset.area===area));
   const rg=document.getElementById('reg-group-day');
-  if(area==='polos'){
-    rg.style.maxHeight='40px';
-    document.querySelectorAll('.wf-btn-day.reg').forEach(b=>b.classList.remove('active'));
-    _buildWF('svg-funnel-day',_wfData.day.polos);
-  } else {
-    rg.style.maxHeight='0';
-    document.querySelectorAll('.wf-btn-day.reg').forEach(b=>b.classList.remove('active'));
-    _buildWF('svg-funnel-day',_wfData.day[area]);
-  }
+  if(area==='polos'){rg.style.maxHeight='40px';document.querySelectorAll('.wf-btn-day.reg').forEach(b=>b.classList.remove('active'));_buildWF('svg-funnel-day',_wfData.day.polos);}
+  else{rg.style.maxHeight='0';document.querySelectorAll('.wf-btn-day.reg').forEach(b=>b.classList.remove('active'));_buildWF('svg-funnel-day',_wfData.day[area]);}
 }
-
-function selectRegDay(reg) {
+function selectRegDay(reg){
   document.querySelectorAll('.wf-btn-day.reg').forEach(b=>b.classList.toggle('active',b.dataset.reg===reg));
   _buildWF('svg-funnel-day',_wfData.day[reg]);
 }
 
-function toggleAcumChart(mode) {
-  const isNC = mode === 'nc';
-  document.getElementById('chart-nc').style.display = isNC ? 'block' : 'none';
-  document.getElementById('chart-tpv').style.display = isNC ? 'none' : 'block';
-  const tnc = document.getElementById('toggle-nc');
-  const ttpv = document.getElementById('toggle-tpv');
-  tnc.style.background = isNC ? '#1A2420' : '#F4F6F5';
-  tnc.style.color = isNC ? '#fff' : '#5A706A';
-  tnc.style.borderColor = isNC ? '#1A2420' : '#DDE2DF';
-  ttpv.style.background = isNC ? '#F4F6F5' : '#1A2420';
-  ttpv.style.color = isNC ? '#5A706A' : '#fff';
-  ttpv.style.borderColor = isNC ? '#DDE2DF' : '#1A2420';
-  // Redesenha o gráfico visível para garantir dimensões corretas
-  if(!isNC) _buildWF('svg-tpv-month', _currentTpvData || _tpvData.consolidado);
+function toggleAcumChart(mode){
+  const isNC=mode==='nc';
+  document.getElementById('chart-nc').style.display=isNC?'block':'none';
+  document.getElementById('chart-tpv').style.display=isNC?'none':'block';
+  const tnc=document.getElementById('toggle-nc'),ttpv=document.getElementById('toggle-tpv');
+  tnc.style.background=isNC?'#1A2420':'#F4F6F5';tnc.style.color=isNC?'#fff':'#5A706A';tnc.style.borderColor=isNC?'#1A2420':'#DDE2DF';
+  ttpv.style.background=isNC?'#F4F6F5':'#1A2420';ttpv.style.color=isNC?'#5A706A':'#fff';ttpv.style.borderColor=isNC?'#DDE2DF':'#1A2420';
+  if(!isNC)_buildWF('svg-tpv-month',_currentTpvData||_tpvData.consolidado);
 }
-
-let _currentTpvData = null;
-
-function selectAreaAcum(area) {
+let _currentTpvData=null;
+function selectAreaAcum(area){
   document.querySelectorAll('.wf-btn-acum:not(.reg)').forEach(b=>b.classList.toggle('active',b.dataset.area===area));
   const rg=document.getElementById('reg-group-acum');
-  if(area==='polos'){
-    rg.style.maxHeight='40px';
-    document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.remove('active'));
-    _buildWF('svg-funnel-month',_wfData.month.polos);
-    _currentTpvData = _tpvData.polos;
-    _buildWF('svg-tpv-month',_tpvData.polos);
-  } else {
-    rg.style.maxHeight='0';
-    document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.remove('active'));
-    _buildWF('svg-funnel-month',_wfData.month[area]);
-    _currentTpvData = _tpvData[area];
-    _buildWF('svg-tpv-month',_tpvData[area]);
-  }
+  if(area==='polos'){rg.style.maxHeight='40px';document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.remove('active'));_buildWF('svg-funnel-month',_wfData.month.polos);_currentTpvData=_tpvData.polos;_buildWF('svg-tpv-month',_tpvData.polos);}
+  else{rg.style.maxHeight='0';document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.remove('active'));_buildWF('svg-funnel-month',_wfData.month[area]);_currentTpvData=_tpvData[area];_buildWF('svg-tpv-month',_tpvData[area]);}
 }
-
-function selectRegAcum(reg, regMonth, regTpv) {
+function selectRegAcum(reg,regMonth,regTpv){
   document.querySelectorAll('.wf-btn-acum.reg').forEach(b=>b.classList.toggle('active',b.dataset.reg===reg));
   _buildWF('svg-funnel-month',_wfData.month[regMonth]);
-  _currentTpvData = _tpvData[regTpv];
+  _currentTpvData=_tpvData[regTpv];
   _buildWF('svg-tpv-month',_tpvData[regTpv]);
 }
 
-
-// TPV M1 ACUMULADO
-const _tpvData = {
-  consolidado:  [ {name:["TPV M1","Meta"],       val:"R$1.300,1mi",delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$328.484",delta:-3.5,type:"neg"}, {name:["Prod M1","Ativos/HCDU"],val:"0,45",delta:-6.2,type:"neg"}, {name:["HC","Ativo"],val:"3.858",delta:-1.3,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$1.246,7mi",delta:-4.1,type:"result"} ],
-  polos:        [ {name:["TPV M1","Meta"],         val:"R$614,4mi", delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$269.879",delta:+1.2,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,44",delta:-6.2,type:"neg"}, {name:["HC","Ativo"],val:"2.335",delta:-1.5,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$618,3mi",delta:+0.6,type:"result"} ],
-  tcn:          [ {name:["TPV M1","Meta"],         val:"R$132,9mi", delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$30.994",delta:+12.5,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,48",delta:-14.8,type:"neg"}, {name:["HC","Ativo"],val:"453",delta:-1.5,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$120,5mi",delta:-9.3,type:"result"} ],
-  tne:          [ {name:["TPV M1","Meta"],         val:"R$118,7mi",  delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$28.026",delta:+6.5,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,62",delta:+8.8,type:"pos"}, {name:["HC","Ativo"],val:"426",delta:-7.2,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$130,7mi",delta:+10.1,type:"result"} ],
-  tsp:          [ {name:["TPV M1","Meta"],         val:"R$137,2mi", delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$27.383",delta:+4.1,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,48",delta:-4.9,type:"neg"}, {name:["HC","Ativo"],val:"584",delta:-0.3,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$135,4mi",delta:-1.3,type:"result"} ],
-  tse:          [ {name:["TPV M1","Meta"],         val:"R$112,6mi",  delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$31.804",delta:+17.5,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,57",delta:-3.0,type:"neg"}, {name:["HC","Ativo"],val:"421",delta:-1.1,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$128,2mi",delta:+13.9,type:"result"} ],
-  tsul:         [ {name:["TPV M1","Meta"],         val:"R$113,1mi",  delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$26.875",delta:+1.2,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,49",delta:-12.5,type:"neg"}, {name:["HC","Ativo"],val:"453",delta:+4.6,type:"pos"}, {name:["TPV M1","Realizado"],val:"R$103,6mi",delta:-8.4,type:"result"} ],
-  especialistas:[ {name:["TPV M1","Meta"],         val:"R$456,3mi", delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$707.693",delta:-15.8,type:"neg"}, {name:["Prod M1","Ativos/HCDU"],val:"0,29",delta:-15.2,type:"neg"}, {name:["HC","Ativo"],val:"540",delta:-8.5,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$366,9mi",delta:-19.6,type:"result"} ],
-  franquias:    [ {name:["TPV M1","Meta"],         val:"R$229,4mi", delta:null,  type:"ref"}, {name:["TPV","Médio"],val:"R$265.237",delta:+12.5,type:"pos"}, {name:["Prod M1","Ativos/HCDU"],val:"0,57",delta:+10.7,type:"pos"}, {name:["HC","Ativo"],val:"984",delta:-1.8,type:"neg"}, {name:["TPV M1","Realizado"],val:"R$261,4mi",delta:+14.0,type:"result"} ],
-};
-
-_buildWF('svg-funnel-day', _wfData.day.consolidado);
-_buildWF('svg-funnel-month', _wfData.month.consolidado);
-_buildWF('svg-tpv-month', _tpvData.consolidado);
+// Init
+_buildWF('svg-funnel-day',_wfData.day.consolidado);
+_buildWF('svg-funnel-month',_wfData.month.consolidado);
+_buildWF('svg-tpv-month',_tpvData.consolidado);
 </script>
 
 <script>
-function toggleSess(id, chevId) {
+function toggleSess(id,chevId){
   document.getElementById(id).classList.toggle('open');
   document.getElementById(id).previousElementSibling.classList.toggle('open');
 }
-function toggleExp(btn) {
+function toggleExp(btn){
   btn.classList.toggle('open');
   btn.nextElementSibling.classList.toggle('open');
 }
 </script>
+
+<div class="footer">
+  <p>Stone · Área Comercial · Dados extraídos dos sistemas internos</p>
+  <p>Referência: 30/04/2026 · Fechamento de Semana e de Abril</p>
+</div>
 </body>
 </html>
